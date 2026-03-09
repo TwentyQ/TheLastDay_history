@@ -129,13 +129,14 @@ style namebox is default
 style namebox_label is say_label
 
 
+
 style window:
     xalign 0.5
     xfill True
-    yalign gui.textbox_yalign
-    ysize gui.textbox_height
+    yalign 1.0
+    ysize 350  # НУЖНАЯ ВАМ ВЫСОТА
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Transform("gui/textbox.png", size=(1920, 450))
 
 style namebox:
     xpos gui.name_xpos
