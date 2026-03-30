@@ -143,8 +143,10 @@ label wake_sisters:
 
     "Анастасия тихо окликает сестер."
     
-    show olga sleepy at left
-    show anastasia sitting at center
+    show olga talk:
+        pos (50, 80)
+    show anastasia talk:
+        pos (750, 150)
     
     o "Настя? Ты чего не спишь? Еще рано."
     
