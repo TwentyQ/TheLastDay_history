@@ -30,27 +30,27 @@
                 "Небольшая икона, которую Анастасия взяла из Царского Села",
                 "Императорская семья всегда возила с собой походные иконы."),
 
-                Item(2,"Евангелие Татьяны","images/items/icon_gospel.png",
+                Item(2,"Евангелие Татьяны","images/inventory/bibl.png",
                 "Евангелие с закладкой и пометками Великой княжны",
                 "Татьяна часто читала духовную литературу матери."),
 
-                Item(3,"Нательный крест Николая II","images/items/icon_cross_nikolai.png",
+                Item(3,"Нательный крест Николая","images/inventory/cross_n.png",
                 "Простой железный крест",
                 "После отречения Николай носил простой крест."),
 
-                Item(4,"Молитвослов Александры","images/items/icon_prayer.png",
+                Item(4,"Молитвослов Александры","images/inventory/prayer.png",
                 "Молитвослов с записями",
                 "Императрица записывала молитвы о смирении."),
 
-                Item(5,"Библия с пометками","images/items/icon_bible.png",
+                Item(5,"Библия с пометками","images/inventory/notes.png",
                 "Библия Николая",
                 "Император подчеркивал строки о терпении."),
 
-                Item(6,"Образок на мощах","images/items/icon_image.png",
+                Item(6,"Образок на мощах","images/inventory/icons.png",
                 "Небольшой образок",
                 "Девочки носили его тайно."),
 
-                Item(7,"Крестик Алексея","images/inventory/lenta.png",
+                Item(7,"Крестик Алексея","images/inventory/cross_a.png",
                 "Крестик цесаревича",
                 "Подарок Марии Фёдоровны.")
             ]
@@ -80,7 +80,9 @@
 default inventory = Inventory()
 
 
-# иконка инвентаря
+# =====================================================
+# БЫСТРАЯ ИКОНКА ИНВЕНТАРЯ
+# =====================================================
 
 screen quick_inventory():
     zorder 50
@@ -92,7 +94,9 @@ screen quick_inventory():
         action Show("diary_inventory")
 
 
-# главный экран инвентаря
+# =====================================================
+# ГЛАВНЫЙ ЭКРАН ИНВЕНТАРЯ (УВЕЛИЧЕННЫЕ ИКОНКИ)
+# =====================================================
 
 screen diary_inventory():
     modal True
@@ -100,91 +104,97 @@ screen diary_inventory():
     add Solid("#00000080")
     add "images/inventory/open.png" xalign 0.5 yalign 0.5
 
-    # заголовок
-    text "Артефакты [inventory.count_found()]/[inventory.max_items]" size 60 color "#2c1e0e" font "fonts/inv.ttf":
+    # ЗАГОЛОВОК
+    text "Артефакты [inventory.count_found()]/[inventory.max_items]" size 60 color "#2c1e0e" font "fonts/GreatVibes.ttf":
         xpos 520
         ypos 180
 
-    # левая страница
+    # ЛЕВАЯ СТРАНИЦА (ИКОНКИ 100x100 + БОЛЬШОЙ ОТСТУП)
     fixed:
         xpos 520
         ypos 260
         xsize 420
         ysize 600
         vbox:
-            spacing 35
-            text "СВЯТЫНИ":
-                size 30
+            spacing 35  # УВЕЛИЧЕНО расстояние между строками
+            text "Святыни":
+                size 40
                 color "#2c1e0e"
+                font "fonts/GreatVibes.ttf"
             for i in range(0,4):
                 if i < len(inventory.items):
                     $ item = inventory.items[i]
                     hbox:
-                        spacing 20
+                        spacing 20  # УВЕЛИЧЕНО расстояние между иконкой и текстом
                         if item.found:
                             imagebutton:
-                                idle Transform(item.icon_file, size=(100,100))
+                                idle Transform(item.icon_file, size=(100,100))  # БЫЛО 60, СТАЛО 100
                                 hover Transform(item.icon_file, size=(100,100), matrixcolor=TintMatrix("#808080"))
                                 action Show("item_info_screen", item=item)
                         else:
-                            text "?" size 80 color "#8B7355"
+                            text "?" size 80 color "#8B7355"  # БЫЛО 50, СТАЛО 80
                         text item.name:
-                            size 22
+                            size 30  # БЫЛО 20, СТАЛО 22
                             color ("#2c1e0e" if item.found else "#8B7355")
-                            yalign 0.5
+                            font "fonts/GreatVibes.ttf"
+                            yalign 0.5  # Выравнивание по центру относительно иконки
 
-    # правая страница
+    # ПРАВАЯ СТРАНИЦА (ИКОНКИ 100x100 + БОЛЬШОЙ ОТСТУП)
     fixed:
         xpos 1000
         ypos 260
         xsize 410
         ysize 600
         vbox:
-            spacing 35
-            text "ЗАПИСИ":
-                size 30
+            spacing 35  # УВЕЛИЧЕНО
+            text "Записи":
+                size 40
                 color "#2c1e0e"
+                font "fonts/GreatVibes.ttf"
             for i in range(4,7):
                 if i < len(inventory.items):
                     $ item = inventory.items[i]
                     hbox:
-                        spacing 20
+                        spacing 20  # УВЕЛИЧЕНО
                         if item.found:
                             imagebutton:
-                                idle Transform(item.icon_file, size=(100,100))
+                                idle Transform(item.icon_file, size=(100,100))  # БЫЛО 60, СТАЛО 100
                                 hover Transform(item.icon_file, size=(100,100), matrixcolor=TintMatrix("#808080"))
                                 action Show("item_info_screen", item=item)
                         else:
-                            text "?" size 80 color "#8B7355"
+                            text "?" size 80 color "#8B7355"  # БЫЛО 50, СТАЛО 80
                         text item.name:
-                            size 22
+                            size 30  # БЫЛО 20, СТАЛО 22
                             color ("#2c1e0e" if item.found else "#8B7355")
+                            font "fonts/GreatVibes.ttf"
                             yalign 0.5
             frame:
                 background "#8B7355"
                 xsize 360
                 ysize 1
             if inventory.count_found()==0:
-                text "Пока ничего не найдено..." size 18 color "#8B7355"
+                text "Пока ничего не найдено..." size 25 color "#8B7355"
             elif inventory.count_found()<3:
-                text "Найдено несколько святынь..." size 18 color "#2c1e0e"
+                text "Найдено несколько святынь..." size 25 color "#2c1e0e"
             elif inventory.count_found()<5:
-                text "Господь с нами..." size 18 color "#2c1e0e"
+                text "Господь с нами..." size 25 color "#2c1e0e"
             elif inventory.count_found()<7:
-                text "Почти всё собрано..." size 18 color "#2c1e0e"
+                text "Почти всё собрано..." size 25 color "#2c1e0e"
             else:
-                text "Да будет воля Твоя..." size 18 color "#2c1e0e"
+                text "Да будет воля Твоя..." size 25 color "#2c1e0e"
 
-    # закрыть
+    # ЗАКРЫТЬ (закладка)
     imagebutton:
-        idle Transform("images/inventory/bookmark.png", size=(70,100))
-        hover Transform("images/inventory/bookmark.png", size=(70,100), matrixcolor=TintMatrix("#808080"))
-        xpos 1350
-        ypos 180
+        idle Transform("images/inventory/bookmark.png", size=(700,1100))
+        hover Transform("images/inventory/bookmark.png", size=(700,1100), matrixcolor=TintMatrix("#808080"))
+        xpos 1010
+        ypos -30
         action Hide("diary_inventory")
 
 
-# Описание предмета
+# =====================================================
+# ЭКРАН ОПИСАНИЯ ПРЕДМЕТА (тоже увеличим иконку)
+# =====================================================
 
 screen item_info_screen(item):
     """Экран информации о предмете"""
@@ -215,14 +225,16 @@ screen item_info_screen(item):
                 
                 # Верхний блок с иконкой и названием
                 hbox:
-                    spacing 25
-                    xalign 0.5
+                    spacing 40
+                    xalign 0.4
                     
-                    add Transform(item.icon_file, size=(120,120))
+                    add Transform(item.icon_file, size=(120,120)):
+                        yoffset 20
                     text item.name:
-                        size 28
+                        size 40
                         color "#2c1e0e"
-                        yalign 0.5
+                        yalign 0.9
+                        font "fonts/GreatVibes.ttf"
                 
                 # Линия-разделитель
                 frame:
@@ -233,32 +245,32 @@ screen item_info_screen(item):
                 
                 # Описание
                 text item.description:
-                    size 18
+                    size 30
                     color "#2c1e0e"
+                    font "fonts/GreatVibes.ttf"
                     xalign 0.5
                     text_align 0.5
                     layout "subtitle"
                 
                 # Историческая справка
-                frame:
-                    background "#f0e6d2"
-                    xfill True
-                    padding (20,20,20,20)
-                    
-                    text item.historical_note:
-                        size 16
-                        color "#2c1e0e"
-                        xalign 0.5
-                        text_align 0.5
-                        layout "subtitle"
+                text item.historical_note:
+                    size 30
+                    color "#2c1e0e"
+                    font "fonts/RussoOne.ttf"
+                    xalign 0.5
+                    text_align 0.5
+                    layout "subtitle"
                 
                 # Кнопка закрытия
                 imagebutton:
-                    idle Transform("images/inventory/wax_seal.png", size=(70,70))
-                    hover Transform("images/inventory/wax_seal.png", size=(70,70), matrixcolor=TintMatrix("#808080"))
+                    idle Transform("images/inventory/wax_seal.png", size=(200,200))
+                    hover Transform("images/inventory/wax_seal.png", size=(200,200), matrixcolor=TintMatrix("#808080"))
                     action Hide("item_info_screen")
-                    xalign 0.5
-
+                    xpos -57  # отступ слева в пикселях
+                    ypos 20
+# =====================================================
+# ПОДКЛЮЧЕНИЕ
+# =====================================================
 
 init python:
     config.overlay_screens.append("quick_inventory")

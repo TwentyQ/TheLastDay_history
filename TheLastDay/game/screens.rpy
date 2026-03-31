@@ -155,6 +155,8 @@ style say_label:
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
+    color "#000000"
+    size 35
 
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
@@ -287,63 +289,190 @@ style quick_button_text:
 ##
 ## Этот экран включает в себя главное и игровое меню, и обеспечивает навигацию к
 ## другим меню и к началу игры.
+# Трансформации для поворота кнопок
+# Трансформации для поворота кнопок
+transform rotate_left_small:
+    rotate -2
+
+transform rotate_right_small:
+    rotate 1.5
+
+transform rotate_left_medium:
+    rotate -1
+
+transform rotate_right_medium:
+    rotate 0.5
+
+transform rotate_left_large:
+    rotate -1.5
+
+transform rotate_right_large:
+    rotate 2
+
+transform rotate_5:
+    rotate 5
+
 
 screen navigation():
 
-    vbox:
-        style_prefix "navigation"
+    fixed:
 
-        xpos gui.navigation_xpos
-        yalign 0.5
-
-        spacing gui.navigation_spacing
-
+        ## Кнопка 1: Начать (только в главном меню)
         if main_menu:
+            button:
+                action Start()
+                xpos 80
+                ypos 90
+                at rotate_left_small
 
-            textbutton _("Начать") action Start()
+                xsize 350
+                ysize 120
 
-        else:
+                background Transform("gui/button/start.png", size=(350, 120))
+                hover_background Transform("gui/button/start_hover.png", size=(350, 120))
 
-            textbutton _("История") action ShowMenu("history")
+                text "Новая игра":
+                    size 28
+                    color "#2c1e0e"
+                    bold True
+                    outlines [(2, "#e6d5b8", 0, 0)]
+                    xalign 0.5
+                    yalign 0.5
+                    yoffset 7
 
-            textbutton _("Сохранить") action ShowMenu("save")
+        ## Кнопка 2: Загрузить
+        button:
+            action ShowMenu("load")
+            xpos 100
+            ypos 200
+            at rotate_left_medium
 
-        textbutton _("Загрузить") action ShowMenu("load")
+            xsize 350
+            ysize 120
 
-        textbutton _("Настройки") action ShowMenu("preferences")
+            background Transform("gui/button/start.png", size=(350, 120))
+            hover_background Transform("gui/button/start_hover.png", size=(350, 120))
 
-        if _in_replay:
+            text "Загрузить":
+                size 26
+                color "#2c1e0e"
+                bold True
+                outlines [(2, "#e6d5b8", 0, 0)]
+                xalign 0.5
+                yalign 0.5
+                yoffset 7
 
-            textbutton _("Завершить повтор") action EndReplay(confirm=True)
+        ## Кнопка 3: Настройки
+        button:
+            action ShowMenu("preferences")
+            xpos 80
+            ypos 320
+            at rotate_right_medium
 
-        elif not main_menu:
+            background Transform("gui/button/start.png", size=(350, 120))
+            hover_background Transform("gui/button/start_hover.png", size=(350, 120))
 
-            textbutton _("Главное меню") action MainMenu()
+            xsize 350
+            ysize 120
 
-        textbutton _("Об игре") action ShowMenu("about")
+            text "Настройки":
+                size 26
+                color "#2c1e0e"
+                bold True
+                outlines [(2, "#e6d5b8", 0, 0)]
+                xalign 0.5
+                yalign 0.5
+                yoffset 7
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        ## Кнопка 4: Об игре
+        button:
+            action ShowMenu("about")
+            xpos 100
+            ypos 440
+            at rotate_left_large
 
-            ## Помощь не необходима и не относится к мобильным устройствам.
-            textbutton _("Помощь") action ShowMenu("help")
+            background Transform("gui/button/start.png", size=(350, 120))
+            hover_background Transform("gui/button/start_hover.png", size=(350, 120))
 
+            xsize 350
+            ysize 120
+
+            text "Об игре":
+                size 26
+                color "#2c1e0e"
+                bold True
+                outlines [(2, "#e6d5b8", 0, 0)]
+                xalign 0.5
+                yalign 0.5
+                yoffset 7
+
+        ## Кнопка 5: Помощь (только для ПК в главном меню)
+        if (renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile"))) and main_menu:
+            button:
+                action ShowMenu("help")
+                xpos 85
+                ypos 570
+                at rotate_right_large
+
+                background Transform("gui/button/start.png", size=(350, 120))
+                hover_background Transform("gui/button/start_hover.png", size=(350, 120))
+
+                xsize 350
+                ysize 120
+
+                text "Помощь":
+                    size 26
+                    color "#2c1e0e"
+                    bold True
+                    outlines [(2, "#e6d5b8", 0, 0)]
+                    xalign 0.5
+                    yalign 0.5
+
+        ## Кнопка 6: В главное меню (только во время игры, НЕ в главном меню)
+        if not main_menu and not _in_replay:
+            button:
+                action MainMenu()
+                xpos 90
+                ypos 570
+                at rotate_left_small
+
+                xsize 350
+                ysize 120
+
+                background Transform("gui/button/start.png", size=(350, 120))
+                hover_background Transform("gui/button/start_hover.png", size=(350, 120))
+
+                text "Главное меню":
+                    size 26
+                    color "#2c1e0e"
+                    bold True
+                    outlines [(2, "#e6d5b8", 0, 0)]
+                    xalign 0.5
+                    yalign 0.5
+                    
+
+        ## Кнопка 7: Выход (только для ПК)
         if renpy.variant("pc"):
+            button:
+                action Quit(confirm=not main_menu)
+                xpos 100
+                ypos 690
+                at rotate_right_large
 
-            ## Кнопка выхода блокирована в iOS и не нужна на Android и в веб-
-            ## версии.
-            textbutton _("Выход") action Quit(confirm=not main_menu)
+                xsize 350
+                ysize 120
 
+                background Transform("gui/button/start.png", size=(350, 120))
+                hover_background Transform("gui/button/start_hover.png", size=(350, 120))
 
-style navigation_button is gui_button
-style navigation_button_text is gui_button_text
-
-style navigation_button:
-    size_group "navigation"
-    properties gui.button_properties("navigation_button")
-
-style navigation_button_text:
-    properties gui.text_properties("navigation_button")
-
+                text "Выход":
+                    size 26
+                    color "#2c1e0e"
+                    bold True
+                    outlines [(2, "#e6d5b8", 0, 0)]
+                    xalign 0.5
+                    yalign 0.5
+                    
 
 ## Экран главного меню #########################################################
 ##
@@ -369,43 +498,45 @@ screen main_menu():
 
     if gui.show_name:
 
-        vbox:
-            style "main_menu_vbox"
+        # Текст отключён, показываем картинку
+        # vbox:
+        #     style "main_menu_vbox"
+        #     text "[config.name!t]":
+        #         style "main_menu_title"
+        
+        # Добавляем логотип
+        add "gui/game_logo.png":
+            xpos 40   # 100 пикселей от левого края
+            ypos -230
+            zoom 0.5
 
-            text "[config.name!t]":
-                style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
 style main_menu_text is gui_text
 style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
+
 
 style main_menu_frame:
     xsize 420
     yfill True
-
-    background "gui/overlay/main_menu.png"
+ #   background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
+    xalign 0.0
+    xoffset 30
     xmaximum 1200
-    yalign 1.0
-    yoffset -30
+    yalign 0.0
+    yoffset 40
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
 
 style main_menu_title:
     properties gui.text_properties("title")
-
-style main_menu_version:
-    properties gui.text_properties("version")
+    size 130
 
 
 ## Экран игрового меню #########################################################
@@ -477,10 +608,25 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("Вернуться"):
-        style "return_button"
-
+    button:
         action Return()
+        xpos 50
+        ypos 870
+        at rotate_right_large
+
+        xsize 280
+        ysize 90
+
+        background Transform("gui/button/start.png", size=(280, 90))
+        hover_background Transform("gui/button/start_hover.png", size=(280, 90))
+
+        text "Назад":
+            size 16
+            color "#2c1e0e"
+            bold True
+            xalign 0.5
+            yalign 0.5
+            yoffset 0
 
     label title
 
@@ -505,7 +651,7 @@ style game_menu_outer_frame:
     bottom_padding 45
     top_padding 180
 
-    background "gui/overlay/game_menu.png"
+    background Transform("gui/overlay/game_menu.png", size=(1920, 1080))
 
 style game_menu_navigation_frame:
     xsize 420
@@ -560,13 +706,11 @@ screen about():
         vbox:
 
             label "[config.name!t]"
-            text _("Версия [config.version!t]\n")
 
             ## gui.about обычно установлено в options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
@@ -1255,7 +1399,7 @@ style skip_text:
 
 style skip_triangle:
     ## Нам надо использовать шрифт, имеющий в себе символ U+25B8 (стрелку выше).
-    font "DejaVuSans.ttf"
+    font "GreatVibes.ttf"
 
 
 ## Экран уведомлений ###########################################################
@@ -1619,3 +1763,41 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+
+
+# ========== НАШИ КАСТОМНЫЕ ЭКРАНЫ ДЛЯ QTE ==========
+
+screen qte_breathing_screen():
+    # Полупрозрачный тёмный фон
+    frame:
+        background None
+        xfill True
+        yfill True
+        add Solid("#000000") alpha 0.3
+        
+    # Счётчик спокойствия
+    vbox:
+        xalign 0.95
+        yalign 0.05
+        text "Спокойствие: [qte_score]/[qte_required]" size 24 color "#e6d5b8" outlines [(1, "#5a3a2a", 0, 0)]
+        
+    # Текст-подсказка
+    vbox:
+        xalign 0.5
+        yalign 0.15
+        text "ДЫШИ... НАЖМИ КЛАВИШУ" size 18 color "#b8a88c" outlines [(1, "#3a2a1a", 0, 0)]
+
+screen qte_key_prompt(key, remaining_time):
+    # Рамка с клавишей и таймером
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 50
+        ypadding 50
+        background Solid("#2a1a0a")
+        
+        vbox:
+            spacing 10
+            text key size 72 color "#d4af37" outlines [(2, "#2a1a0a", 0, 0)] xalign 0.5
+            text "Осталось: [remaining_time] сек" size 16 color "#b8a88c" xalign 0.5
