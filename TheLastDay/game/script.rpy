@@ -1385,23 +1385,83 @@ label breakfast:
     
     "Семья собирается в столовой. Алексей сидит бледный, нога опухла."
     
-    show nikolay
-    show ax
-    show al
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+    with fade
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
     
     n "Как нога, мой мальчик?"
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
     
     ax "Терпимо, Папа. Только если резко повернуться - больно."
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
     
     al "Я просила доктора Боткина посмотреть. Он придет после завтрака."
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+
+    hide sasha
+    hide alex
+    hide nick
     
-    show b at center behind nikolay with dissolve
+    show botkin talk:
+        zoom 1.1
+        pos (600, 100)
+    with fade
     
     b "Уже пришел, Ваше Величество."
+
+    show botkin:
+        zoom 1.1
+        pos (600, 100)
     
     "Доктор Боткин подходит к Алексею."
+
+    show botkin talk:
+        zoom 1.1
+        pos (400, 100)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
     
     b "Позволите?"
+
+    show botkin:
+        zoom 1.1
+        pos (400, 100)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
 
     ax "Да, доктор."
 
