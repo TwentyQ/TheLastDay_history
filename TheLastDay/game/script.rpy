@@ -892,72 +892,148 @@ label olga_question:
 label scene_washing:
     scene bg way with dissolve
     "Узкий коридор дома Ипатьева. Сестры идут к уборной в сопровождении красноармейца."
-    show guard rude:
-        pos (1500, 80)
-
-    show maria talk:
-        pos (-300, 150)
-
-    show anastasia talk:
-        pos (400, 150)
-
-    with Dissolve(0.2)
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
+    with fade
     
     g "Шевелитесь, барышни. Нечего тут прохлаждаться."
-    
+
+    hide guard talk
+
     if inventory.has_item(1):
+
+        show anastasia shy 2:
+            zoom 1.2
+            pos (600, 200)
+    
         "Внутренний голос Анастасии" "Грубит, как всегда. Но сегодня я почему-то не злюсь."
+
+        hide anastasia shy 2
+        with fade
     
 
     "Мария наклоняется к сестрам и говорит едва слышно."
 
-    show guard rude:
+    show guard:
+        zoom 1.4
         pos (1600, 80)
 
-    hide anastasia talk
-
-    hide maria talk
-
-    show maria talk:
-        pos (300, 150)
-
-    with Dissolve(0.2)
+    show maria sleepy:
+        zoom 1.3
+        pos (550, 200)
 
     m "Этот вчера у Тани спросил, не скучно ли нам без балов."
 
-    hide maria talk
+    hide maria sleepy
+
+    show tania shy 2:
+        zoom 1.3
+        pos (550, 130)
     
     "Татьяна бледнеет, но отвечает шепотом."
 
-    show tanya talk:
-        pos (300, 150)
-
-    with Dissolve(0.2)
+    show tania sleepy 2:
+        zoom 1.3
+        pos (550, 130)
     
     t "Я сделала вид, что не слышу. Мама велела не отвечать на грубости."
+
+    hide tania sleepy
+
+    show olga sleepy:
+        zoom 1.5
+        pos (500, 150)
     
     o "Главное, чтобы Алексея не тревожили. У него ночью нога болела. Я слышала, он стонал."
+
+    hide olga sleepy
+    hide guard
     
     "Анастасия вспоминает, что вчера видела что-то странное."
+
+    show guard:
+        zoom 1.4
+        pos (1600, 80)
+
+    show anastasia sleepy 2:
+        zoom 1.2
+        pos (600, 200)
     
     a "Я слышала, Леню Седнева куда-то увели вчера."
+
+    hide anastasia sleepy 2
+
+    show maria sleepy:
+        zoom 1.3
+        pos (550, 200)
     
     m "Этот поваренок... Жаль, ведь они с Лешенькой дружили."
+
+    hide maria sleepy
+
+    show tania sleepy 2:
+        zoom 1.3
+        pos (550, 130)
     
     t "Да. Мама тоже тревожится, увидим ли мы вновь этого мальчика."
+
+    hide tania shy 2
+    hide guard
         
     if inventory.count_found() >= 1:
         window hide
         menu:
             "Поделиться находкой с сестрами":
+
+                show guard:
+                    zoom 1.4
+                    pos (1600, 80)
+
+                show anastasia sleepy 2:
+                    zoom 1.2
+                    pos (600, 200)
+
                 a "Девочки... Я сегодня иконку нашла. На тумбочке лежала. Та, спасовая."
+
+                hide anastasia sleepy 2
+
+                show olga sleepy:
+                    zoom 1.5
+                    pos (500, 150)
+
                 o "Тише, Настя! Охранник услышит."
+
                 o "Спрячь получше. Это теперь наша святыня."
+                
+                hide olga sleepy
+
+                show tania sleepy 2:
+                    zoom 1.3
+                    pos (550, 130)
+
                 t "Мама говорила, что иконы нас хранят. Может, это знак?"
+
+                hide tania sleepy 2
+
+                show maria sleepy:
+                    zoom 1.3
+                    pos (550, 200)
+
                 m "Конечно, знак! Бог с нами, девочки. Он не оставит."
+
+                hide maria sleepy
+                hide guard
                 
             "Промолчать о находке":
+
+                show anastasia shy 2:
+                    zoom 1.2
+                    pos (600, 200)
+
                 "Внутренний голос Анастасии" "Слишком опасно — охрана может услышать. Расскажу вечером, когда останемся одни."
+
+                hide anastasia shy 2
     
     # Подходим к уборной
     scene bg bath with dissolve
