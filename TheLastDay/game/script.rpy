@@ -1037,8 +1037,14 @@ label scene_washing:
     
     # Подходим к уборной
     scene bg bath with dissolve
+
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
     
     g "Заходите по одной. Остальные ждите здесь."
+
+    hide guard talk
     
     "Первой заходит Ольга. Сестры ждут в коридоре под присмотром охраны."
     
@@ -1047,27 +1053,117 @@ label scene_washing:
     window hide
     menu:
         "Переглянуться с Марией":
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria shy:
+                zoom 1.3
+                pos (300, 200)
+
             "Анастасия ловит взгляд Марии. Та улыбается — той самой своей светлой улыбкой, которая всегда согревает."
+            
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria sleepy:
+                zoom 1.3
+                pos (300, 200)
+            
             m "Помнишь, как в Царском мы бегали к пруду купаться? А мама потом ругалась, что мы мокрые?"
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria shy:
+                zoom 1.3
+                pos (300, 200)
+
             a "Помню. Ты тогда в платье в воду прыгнула, потому что жарко было."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria sleepy:
+                zoom 1.3
+                pos (300, 200)
+
             m "А Татьяна нас прикрывала, говорила, что мы просто облились."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria shy:
+                zoom 1.3
+                pos (300, 200)
+
             "Сестры тихо смеются, но тут же замолкают — охранник оборачивается."
             "Внутренний голос Анастасии" "Хорошо, что есть Мария. Она умеет напомнить, что мы просто девочки, а не узницы."
+
+            hide anastasia shy
+            hide maria shy
             
         "Посмотреть на охранника":
+
+            show anastasia shy 2:
+                zoom 1.2
+                pos (200, 200)
+
+            show guard:
+                zoom 1.4
+                pos (1100, 80)
+
             "Анастасия внимательно смотрит на красноармейца. Ей кажется, что сегодня он ведет себя иначе — более нервно, часто оглядывается, теребит винтовку."
             "Внутренний голос Анастасии" "Он будто ждет чего-то. Или боится. Интересно, о чем они думают, эти солдаты? Снятся ли им те, кого они стерегут?"
+            
+            hide guard
+
+            show guard 2:
+                zoom 1.4
+                pos (1100, 80)
+
             "Охранник ловит взгляд Анастасии"
+
+            show guard talk 2:
+                zoom 1.4
+                pos (1100, 80)
+
             g "Чего уставилась? Отвернись."
+
+            show guard 2:
+                zoom 1.4
+                pos (1100, 80)
+
+            show anastasia shy:
+                zoom 1.2
+                pos (200, 200)
+
             "Анастасия отводит глаза, но чувство тревоги не проходит."
+
+            show guard:
+                zoom 1.4
+                pos (1100, 80)
             
             if inventory.has_item(1):
                 "Анастасия машинально сжимает в кармане икону."
                 "Внутренний голос Анастасии" "Господи, сохрани нас. Что бы ни случилось — сохрани."
+
+            hide guard
+            hide anastasia shy
     
-    show olga at left with dissolve
+    show olga sleepy:
+        zoom 1.5
+        pos (500, 150)
+    with fade
     
     o "Я закончила. Таня, иди ты."
+
+    hide olga sleepy
     
     "Татьяна заходит в уборную. Ожидание продолжается."
     
@@ -1075,44 +1171,205 @@ label scene_washing:
     window hide
     menu:
         "Спросить Ольгу о самочувствии Алексея":
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             a "Оля, ты говорила, у Алексея нога болела. Он сильно мучился?"
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga sleepy:
+                zoom 1.5
+                pos (220, 150)
+
             o "Я слышала, как он плакал ночью. Тихо так, в подушку. Чтобы мама не слышала."
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             a "Бедный Лешка. Он же совсем мальчик еще, а терпит как взрослый."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga sleepy:
+                zoom 1.5
+                pos (220, 150)
+
             o "Папа говорит, казаки так терпят. А Леша хочет быть казаком."
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             "Ольга грустно улыбается."
+
+            hide olga shy
+            hide anastasia shy
             
         "Спросить Ольгу, что думает о словах охранника про балы":
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             a "Оля, а тот охранник... про балы спросил. Это же издевательство, да?"
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga sleepy:
+                zoom 1.5
+                pos (220, 150)
+
             o "Конечно. Но мы не должны показывать, что нам больно. Мама права — молчание лучшее оружие."
+            
             o "Пусть думают, что мы не понимаем, не чувствуем. Мы-то знаем правду."
+
+            hide olga sleepy
+            hide anastasia shy
             
         "Просто стоять молча":
+
+            show anastasia shy 2:
+                zoom 1.2
+                pos (600, 200)
+
             "Анастасия молчит, думая о своем. Сестры рядом, но каждая погружена в свои мысли."
             "Внутренний голос Анастасии" "Сколько еще это будет продолжаться? Месяц? Год? Всегда?"
+
+            hide anastasia shy 2
     
     # Выходит Татьяна, заходит Мария
-    show tatiana at left behind olga with dissolve
-    hide maria
+    show tania shy:
+        zoom 1.3
+        pos (550, 130)
+    with fade
     
     "Мария заходит в уборную. Татьяна присоединяется к сестрам."
+
+    hide tania shy
+
+    show anastasia shy 2:
+        zoom 1.2
+        pos (500, 200)
+
+    show olga shy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+    with fade
     
     # Диалог с Татьяной
     t "Вода ледяная. Но я быстро."
+
+    show olga sleepy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
     
     o "Таня, ты бледная. Не заболела?"
+
+    show olga shy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
     
     t "Нет. Просто не выспалась. Думала о Лене Седневе всю ночь."
+
+    show anastasia sleepy 2:
+        zoom 1.2
+        pos (500, 200)
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
     a "Таня, не переживай. Может, его правда к дяде отпустили?"
+
+    show anastasia shy 2:
+        zoom 1.2
+        pos (500, 200)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+
     t "А если нет, Настя? Если с ним что-то случилось? Он же совсем ребенок."
+
+    show olga sleepy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
     o "Татьяна, не накручивай себя. Мама сказала — будем надеяться на лучшее."
+
+    show olga shy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+
     t "Легко сказать... Я помню его глаза, когда его уводили. Он будто знал что-то."
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
+    hide olga shy
+    hide tania shy
+    hide anastasia shy 2
+    with fade
             
     # Выходит Мария
-    show maria at left behind tatiana with dissolve
+    show maria sleepy:
+        zoom 1.3
+        pos (550, 200)
     
     m "Фух, вода холоднющая! Я аж подпрыгнула."
+
+    hide maria sleepy
+
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
     
     g "Все вышли? Тогда назад. Живо."
+
+    hide guard talk
     
     "Сестры возвращаются по коридору."
     
