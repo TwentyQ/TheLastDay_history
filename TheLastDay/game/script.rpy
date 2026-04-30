@@ -3534,72 +3534,300 @@ label walk_scene:
 
     "Солнце пробивается сквозь дощатый забор. Слышны шаги часового за стеной."
 
-    show nikolai at center
-    show tatyana at left
-    show alexey
-    show maria
-    show anastasia
+    show nick:
+        zoom 1.1
+        pos (600, 80)
+    with fade
 
     "Николай идёт вперёд, заложив руки за спину."
+
+    hide nick
+    with fade
+
+    show tania:
+        zoom 1.2
+        pos (800, 150)
+
+    show alex 2:
+        zoom 1.1
+        pos (500, 180)
+
     "Татьяна ведёт Алексея за руку - он прихрамывает, но отказывается от коляски."
+
+    hide alex 2
+    hide tania
+    with fade
+
+    show anastasia 2:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 250)
+
     "Мария и Анастасия замыкают шествие, перешёптываясь."
+
+    hide maria
+    hide anastasia 2
+    with fade
+
+    show tania:
+        zoom 1.2
+        pos (400, 150)
+
+    show alex talk 2:
+        zoom 1.1
+        pos (100, 180)
+
+    show nick 2:
+        zoom 1.1
+        pos (1100, 80)
 
     ax "Папенька, а почему в этом саду нет ни одного дерева, на которое можно залезть?"
 
+    show alex 2:
+        zoom 1.1
+        pos (100, 180)
+
+    show nick talk 2:
+        zoom 1.1
+        pos (1100, 80)
+
     n "Потому что этот сад, Лёша, посадили не для радости. А для того, чтобы мы видели небо."
+
+    show nick 2:
+        zoom 1.1
+        pos (1100, 80)
 
     "Татьяна сжимает руку брата."
 
-    show maria
+    hide tania
+    hide alex 2
+    hide nick 2
+    with fade
+
+    show anastasia 2:
+        zoom 1.1
+        pos (1100, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 250)
+
     "Анастасия подходит к забору, проводит пальцами по доскам."
+
+    show anastasia talk 2:
+        zoom 1.1
+        pos (1100, 250)
 
     a "Интересно, что там? За этим забором?"
 
+    show anastasia 2:
+        zoom 1.1
+        pos (1100, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (300, 250)
+
     m "Улица. Наверное, обычная. Пыльная. С собаками."
+
+    hide maria talk
+    hide anastasia 2
 
     menu:
         "Что скажет Татьяна?"
         "Не надо смотреть в щели, Настя. Там солдаты. Увидят — подумают что-то не то.":
+
+            show tania talk:
+                zoom 1.2
+                pos (600, 150)
+            with fade
+
             t "Не надо смотреть в щели, Настя. Там солдаты. Увидят — подумают что-то не то."
+
+            hide tania talk
+            with fade
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show maria:
+                zoom 1.2
+                pos (300, 250)
+
             "Анастасия отходит от забора, виновато опустив голову."
+
+            hide maria
+            hide anastasia
+            with fade
+
         "Давай я подсажу тебя. Посмотришь одну секунду.":
+
+            show tania talk:
+                zoom 1.2
+                pos (600, 150)
+            with fade
+
             t "Давай я подсажу тебя. Посмотришь одну секунду."
+
+            hide tania
+            with fade
+
+            show tania:
+                zoom 1.2
+                pos (1000, 190)
+
+            show anastasia 2:
+                zoom 1.1
+                pos (1300, 100)
+
+            show maria:
+                zoom 1.2
+                pos (300, 250)
+
             "Татьяна подсаживает сестру. Анастасия заглядывает в щель."
             scene bg hole with fade
             play sound "audio/knock_angry.mp3"
             "Голос из-за забора:" "Отойти от ограждения!"
             scene bg garden with fade
+
+            show tania:
+                zoom 1.2
+                pos (600, 190)
+
+            show anastasia:
+                zoom 1.1
+                pos (1100, 250)
+
+            show maria:
+                zoom 1.2
+                pos (300, 250)
+
             "Девочки отпрыгивают. Николай качает головой, но не ругает."
+
+            hide maria
+            hide tania
+            hide anastasia
+            with fade
+            
         "За забором такая же Россия, как и везде. Только мы от неё отрезаны.":
+
+            show tania talk:
+                zoom 1.2
+                pos (600, 150)
+            with fade
+
             t "За забором такая же Россия, как и везде. Только мы от неё отрезаны."
-            "Тишина повисает над садом. Мария отворачивается к забору, пряча глаза."
+
+            hide tania
+            with fade
+
+            show anastasia 2:
+                zoom 1.1
+                pos (1100, 250)
+
+            show maria 2:
+                zoom 1.2
+                pos (300, 250)
+
+            "Тишина повисает над садом. Мария отворачивается от забора, пряча глаза."
+
+            hide maria 2
+            hide anastasia 2
+            with fade
 
     "Они доходят до грядки с увядшей зеленью. Алексей садится на скамейку. Татьяна поправляет ему воротник."
 
     "Николай достаёт папиросу, но не закуривает, мнёт в пальцах."
 
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
     n "Знаете, дети… Я много читал в этих стенах. Историю. Особенно про старых царей. Знаете, что их всех объединяло?"
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
 
     a "Короны?"
 
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
     n "Нет. Последние дни. У всех у них были последние дни. И почти никто об этом не знал."
+
+    hide nick talk
+    hide anastasia
+    with fade
+
+    show tania 2:
+        zoom 1.2
+        pos (900, 150)
+
+    show maria 2:
+        zoom 1.2
+        pos (300, 250)
+    with fade
 
     "Пауза. Мария кусает губу. Татьяна смотрит на отца с удивлением - он никогда не говорил так прямо."
 
+    hide maria 2
+    hide tania 2
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
     a "Папенька… А мы знаем?"
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
 
     "Николай молчит. Кладёт папиросу обратно в портсигар."
 
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
     n "Мы знаем только то, что Бог даёт знать. А остальное - ветер."
+
+    hide nick talk
+    hide anastasia
 
     if bread_type == "karavay" and baking_success:
         $ heard_soldiers = True
-        show anastasia
         scene bg hole with fade
         "Анастасия отходит к дальней стене сада, где доски чуть отошли. В щель виден край улицы. Там стоят двое солдат — молодой и пожилой. Они не видят Настю. Она замирает, подслушивает."
-
-        show soldier_young
-        show soldier_old
 
         "Молодой солдат" "Слышь, Петрович… А правда, что их… ну… того? Скоро?"
 
@@ -3609,38 +3837,146 @@ label walk_scene:
 
         "Старый солдат" "Жалеть - не наша работа. Наша работа - приказ выполнять. А сердце… сердце засунь подальше. Оно тебе здесь боком вылезет."
 
-        hide soldier_young
-        hide soldier_old
-
         scene bg garden with fade
+
+        show anastasia:
+            zoom 1.1
+            pos (900, 250)
+
+        show tania 2:
+            zoom 1.2
+            pos (300, 150)
 
         "Анастасия отходит от щели. Лицо у неё белое. Она возвращается к Татьяне и хватает её за рукав."
 
+        hide tania 2
+
+        show tania:
+            zoom 1.2
+            pos (300, 150)
+
+        show anastasia talk:
+            zoom 1.1
+            pos (900, 250)
+
         a "Таня… Я слышала… Они говорят… Про «того». Что скоро."
+
+        show anastasia:
+            zoom 1.1
+            pos (900, 250)
 
         "Татьяна замирает. Секунда - и она берёт себя в руки."
 
         menu:
             "Что сделает Татьяна?"
             "Молчи. Никому ни слова. Особенно Мари и Лёше. Я сама скажу отцу.":
+
+                show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
                 t "Молчи. Никому ни слова. Особенно Мари и Лёше. Я сама скажу отцу."
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
                 "Татьяна обнимает сестру. Её голос твёрд, но руки дрожат."
+
+                hide tania
+                hide anastasia
+                with fade
+
             "Скажем всем. Пусть знают. Хватит притворяться.":
+
+                show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
                 t "Скажем всем. Пусть знают. Хватит притворяться."
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
                 "Татьяна сжимает кулаки. В её глазах — отчаяние и решимость."
+
+                hide tania
+                hide anastasia
+                with fade
+
             "Это просто солдатские разговоры. Они сами ничего не знают. Забудь, Настя.":
+
+                show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
                 t "Это просто солдатские разговоры. Они сами ничего не знают. Забудь, Настя."
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
                 "Татьяна гладит сестру по голове, но сама бледнеет."
+
+                hide tania
+                hide anastasia
+                with fade
 
     "Николай замечает, что девочки шепчутся. Подходит."
 
+    show tania:
+        zoom 1.2
+        pos (800, 150)
+
+    show anastasia:
+        zoom 1.1
+        pos (1300, 250)
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
+    with fade
+
     n "Что случилось?"
+
+    hide tania
+    hide anastasia
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show tania talk 2:
+        zoom 1.2
+        pos (800, 150)
+
+    show anastasia:
+        zoom 1.1
+        pos (1300, 250)
 
     t "Ничего, папенька. Настя просто испугалась… ящерицы."
 
+    show tania 2:
+        zoom 1.2
+        pos (800, 150)
+
     "Николай смотрит пристально, верит не до конца, но кивает."
 
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
+
     n "В этом саду много чего есть. Кроме надежды."
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    hide nick
+    hide anastasia
+    hide tania 2
+    with fade
 
     "Он садится рядом с Алексеем. Гладит сына по голове."
 
@@ -3648,36 +3984,208 @@ label walk_scene:
 if not inventory.has_item(3):
     menu:
         "Подойти к отцу и спросить о его кресте" if heard_soldiers:
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+            with fade
+
             a "Папенька... Можно вас спросить?"
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick talk:
+                zoom 1.1
+                pos (300, 80)
+
             n "Конечно, Настенька."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+
             a "Ваш крест... Вы всегда его носите?"
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             "Николай достаёт крест из-за ворота гимнастёрки."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick talk:
+                zoom 1.1
+                pos (300, 80)
+
             n "Этот крест мне подарила мама, когда я был маленьким. Я ношу его всю жизнь."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+
             a "Можно подержать?"
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick talk:
+                zoom 1.1
+                pos (300, 80)
+
             n "Держи, дочка."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+
             "Анастасия берёт тяжёлый серебряный крест. Он хранит тепло отца."
             $ inventory.add_item(3)
             play sound "audio/notify.mp3"
+
+            hide anastasia
+            hide nick
+            with fade
             
         "Спросить, что папа чувствует, когда молится":
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+            with fade
+
             a "Папенька... А когда вы молитесь, вам становится легче?"
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick talk:
+                zoom 1.1
+                pos (300, 80)
+
             n "Знаешь, Настя, молитва - это как разговор с самым близким другом. Иногда слов не нужно. Просто быть."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+
             a "Я тоже хочу так научиться."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick talk:
+                zoom 1.1
+                pos (300, 80)
+
             n "Ты уже умеешь. Просто закрой глаза и слушай своё сердце."
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+
             "Анастасия закрывает глаза на секунду. Ей кажется, что она чувствует что-то тёплое внутри."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (300, 80)
+
             a "Кажется, получается..."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick talk:
+                zoom 1.1
+                pos (300, 80)
+
             n "Видишь? Бог всегда с тобой, даже если ты не носишь крест на шее."
+
+            hide anastasia
+            hide nick
+            with fade
             
         "Промолчать и просто идти рядом с отцом":
+
+            show anastasia 2:
+                zoom 1.1
+                pos (900, 250)
+
+            show nick:
+                zoom 1.1
+                pos (400, 80)
+            with fade
+
             "Анастасия молча идёт рядом с отцом. Ей не нужны слова. Просто быть рядом - уже достаточно."
             "Николай кладёт руку ей на плечо. Они идут молча, и это молчание говорит больше любых слов."
 
+            hide anastasia 2
+            hide nick
+            with fade
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
+
     ax "Папенька, а когда мы уедем отсюда?"
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
 
     "Николай молчит. Долго. Потом очень тихо:"
 
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
     n "Скоро, Лёша. Скоро."
     play music "audio/guard.mp3" fadein 2.0 volume 0.3
+
+    hide alex
+    hide nick talk
+    with fade
+
     "Все замолкают. Слышно только шаги часового. Где-то за забором лает собака."
 
     "Мария срывает увядший одуванчик и дует на него. Семечки не летят."
@@ -3685,14 +4193,41 @@ if not inventory.has_item(3):
     menu:
         "Татьяна предлагает:"
         "Вернёмся в дом. Маменька, наверное, заждалась. И ромашковый чай уже остыл.":
+
+            show tania talk 2:
+                zoom 1.2
+                pos (600, 150)
+
             t "Вернёмся в дом. Маменька, наверное, заждалась. И ромашковый чай уже остыл."
-            "Николай кивает. Семья медленно направляется к дому."
+
+            hide tania talk 2
+            
+            "Николай кивает."
+
         "Посидим ещё немного. Здесь хотя бы воздух. В доме… душно.":
+
+            show tania talk 2:
+                zoom 1.2
+                pos (600, 150)
+
             t "Посидим ещё немного. Здесь хотя бы воздух. В доме… душно."
+
+            hide tania talk 2
+
             "Николай садится обратно на скамейку. Никто не двигается с места."
 
+            "Проходит несколько минут..."
+
         "Давайте споём. Тихо. Ту песню, что пели в Тобольске. Маменька услышит в окно.":
+
+            show tania talk 2:
+                zoom 1.2
+                pos (600, 150)
+
             t "Давайте споём. Тихо. Ту песню, что пели в Тобольске. Маменька услышит в окно."
+
+            hide tania talk 2
+
             play music "audio/romans.mp3" fadein 2.0 volume 0.3
             "Семья начинает тихо петь."
             "Голоса звучат тихо, но ровно."

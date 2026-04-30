@@ -1,15 +1,23 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 873, in script
-    show guard rude:
-Exception: Image 'guard' does not accept attributes 'rude'.
+  File "game/script.rpy", line 1433, in script call
+    call minigame_help_doctor from _call_minigame_help_doctor
+  File "game/script.rpy", line 2066, in script call
+    call secret_dialog_morning from _call_secret_dialog_morning
+  File "game/script.rpy", line 3731, in script
+    show maria 2:
+Exception: Image 'maria' does not accept attributes '2'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 873, in script
-    show guard rude:
+  File "game/script.rpy", line 1433, in script call
+    call minigame_help_doctor from _call_minigame_help_doctor
+  File "game/script.rpy", line 2066, in script call
+    call secret_dialog_morning from _call_secret_dialog_morning
+  File "game/script.rpy", line 3731, in script
+    show maria 2:
   File "renpy/ast.py", line 1357, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,9 +41,9 @@ Traceback (most recent call last):
     raise Exception(
     ...<4 lines>...
     )
-Exception: Image 'guard' does not accept attributes 'rude'.
+Exception: Image 'maria' does not accept attributes '2'.
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.2.26010301
 Там, где кончается июль 
-Thu Apr 30 14:23:48 2026
+Thu Apr 30 21:04:16 2026
