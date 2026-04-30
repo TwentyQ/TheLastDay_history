@@ -4555,29 +4555,93 @@ label free_time:
 label cards:
     scene bg live even with fade
     "После ужина. Все вновь в гостиной. Николай достаёт колоду карт - потрёпанную, в пятнах. Садится напротив Александры."
-    show nikolai at left
-    show aleksandra at right
-    show children_back at center
+    
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
 
     n "Что ж, день был долгим. Может, сыграем партию в безик?"
 
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "С удовольствием, Ники. Дети, кто хочет посмотреть?"
 
+    hide nick
+    hide sasha talk
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+    
+    show olga talk:
+        zoom 1.2
+        pos (900, 170)
+
     o "Я посмотрю."
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+    
+    show olga:
+        zoom 1.2
+        pos (900, 170)
+
     t "И я."
+
+    hide tania
+    hide olga
+
+    show alex talk:
+        zoom 1.1
+        pos (650, 180)
+
     ax "А можно мне с вами?"
+
+    hide alex talk
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     n "В следующий раз, Алёша. А пока смотри и запоминай."
+
+    hide nick talk
+    hide sasha
 
     menu:
         "Играть за Александру":
             $ player_is_nikolai = False
+
+            show sasha talk:
+                zoom 1.3
+                pos (600, 100)
+
             al "Держись, Ники! Я в этой игре — лучшая!"
             
             call card_game_start from _call_card_game_start
         
         "Играть за Николая":
             $ player_is_nikolai = True
+
+            show nick talk:
+                zoom 1.1
+                pos (600, 80)
+
             n "Ха! Сегодня я поддаваться не буду!"
             
             call card_game_start from _call_card_game_start_1
@@ -5026,16 +5090,114 @@ label card_game_player_wins:
     show children_back at center
     
     if player_is_nikolai:
+
+        show nick talk:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha:
+            zoom 1.3
+            pos (900, 100)
+
         n "Кажется, я выиграл!"
+
+        show nick:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha talk:
+            zoom 1.3
+            pos (900, 100)
+
         al "Поздравляю, Ники. Сегодня ты был сильнее."
+
+        hide nick
+        hide sasha talk
+
+        show alex 2:
+            zoom 1.1
+            pos (900, 180)
+
+        show anastasia talk 2:
+            zoom 1.1
+            pos (300, 250)
+
         a "Ура! Папа победил!"
+
+        show alex talk 2:
+            zoom 1.1
+            pos (900, 180)
+
+        show anastasia 2:
+            zoom 1.1
+            pos (300, 250)
+
         ax "А в следующий раз я тоже сыграю!"
+
+        hide anastasia 2
+        hide alex talk 2
+        with fade
     else:
+
+        show nick:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha talk:
+            zoom 1.3
+            pos (900, 100)
+
         al "Кажется, сегодня удача на моей стороне."
+
+        show nick talk:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha:
+            zoom 1.3
+            pos (900, 100)
+
         n "В следующий раз я возьму реванш."
+
+        hide nick talk
+        hide sasha
+
+        show alex 2:
+            zoom 1.1
+            pos (900, 180)
+
+        show tania talk:
+            zoom 1.2
+            pos (300, 150)
+
         t "Мама, вы так ловко играете!"
+
+        show alex talk 2:
+            zoom 1.1
+            pos (900, 180)
+
+        show tania:
+            zoom 1.2
+            pos (300, 150)
+
         ax "А в следующий раз я тоже сыграю!"
+
+        hide alex talk 2
+        hide tania
+
+        show nick:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha talk:
+            zoom 1.3
+            pos (900, 100)
+
         al "Это всё практика, Таня."
+
+        hide nick
+        hide sasha talk
+        with fade
 
     $ card_game_active = False
     jump after_card_game
@@ -5045,25 +5207,112 @@ label card_game_opponent_wins:
     scene bg dinner with fade
     
     if player_is_nikolai:
-        show nikolai at left
-        show aleksandra at right
-    else:
-        show aleksandra at left
-        show nikolai at right
-    
-    show children_back at center
-    
-    if player_is_nikolai:
+
+        show nick:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha talk:
+            zoom 1.3
+            pos (900, 100)
+
         al "Кажется, сегодня удача на моей стороне."
+
+        show nick talk:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha:
+            zoom 1.3
+            pos (900, 100)
+
         n "В следующий раз я возьму реванш."
+
+        hide nick talk
+        hide sasha
+
+        show tania:
+            zoom 1.2
+            pos (600, 150)
+
         t "Мама, вы так ловко играете!"
+
+        hide tania
+
+        show nick:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha talk:
+            zoom 1.3
+            pos (900, 100)
+
         al "Это всё практика, Таня."
+
+        hide nick talk
+        hide sasha
+        with fade
     else:
+
+        show nick talk:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha:
+            zoom 1.3
+            pos (900, 100)
+
         n "Кажется, я выиграл!"
+
+        show nick:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha talk:
+            zoom 1.3
+            pos (900, 100)
+
         al "Поздравляю, Ники. Сегодня ты был сильнее."
+
+        hide nick
+        hide sasha talk
+
+        show alex 2:
+            zoom 1.1
+            pos (900, 180)
+
+        show anastasia talk 2:
+            zoom 1.1
+            pos (300, 250)
+
         a "Ура! Папа победил!"
+
+        show alex talk 2:
+            zoom 1.1
+            pos (900, 180)
+
+        show anastasia 2:
+            zoom 1.1
+            pos (300, 250)
+
         ax "А в следующий раз я тоже сыграю!"
+
+        hide anastasia 2
+        hide alex talk 2
+
+        show nick talk:
+            zoom 1.1
+            pos (300, 80)
+
+        show sasha:
+            zoom 1.3
+            pos (900, 100)
+
         n "Обязательно, Алёша. А теперь пора отдыхать."
+
+        hide sasha
+        hide nick talk
+        with fade
 
     $ card_game_active = False
     jump after_card_game
@@ -5071,18 +5320,30 @@ label card_game_opponent_wins:
 
 label card_game_tie:
     scene bg live even with fade
-    
-    if player_is_nikolai:
-        show nikolai at left
-        show aleksandra at right
-    else:
-        show aleksandra at left
-        show nikolai at right
-    
-    show children_back at center
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     n "Ничья! В следующий раз обязательно выиграю."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Согласна. А теперь пора спать."
+
+    hide sasha talk
+    hide nick
+    with fade
 
     $ card_game_active = False
     jump after_card_game
