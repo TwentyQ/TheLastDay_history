@@ -2596,70 +2596,182 @@ default extra_time = 0
 # СЦЕНА: ВЫПЕЧКА ХЛЕБА (полная)
 label baking_scene:
     scene bg kitchen with fade
-    show h at center
+    show har:
+        zoom 1.1
+        pos (650, 150)
 
     "Харитонов хлопочет у печи."
 
-    show maria at left with moveinleft
-    show anastasia at right with moveinright
+    transform anastasia_custom:
+        zoom 1.1
+        ypos 250
+        on show:
+            xpos 1500
+            easein 0.5 xpos 1200
+
+    transform maria_custom:
+        zoom 1.2
+        ypos 250
+        on show:
+            xpos -200
+            easein 0.5 xpos 0
+
+    show anastasia at anastasia_custom
+    show maria talk at maria_custom
 
     m "Харитонов, ну позвольте! Мы сами хотим, к обеду хлеб испечь."
+
+    show maria:
+        zoom 1.2
+        pos (0, 250)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (1200, 250)
+
     a "Сами-сами! Мы умеем. Немножко."
 
-    show kharitonov_skeptical
+    show anastasia:
+        zoom 1.1
+        pos (1200, 250)
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
+
     h "Ишь чего удумали, барышни. Не гоже княжеским дочкам в муке руки по локоть обваливать. Скажут потом - Харитонов не доглядел."
 
-    show tatyana at right with moveinright
-    hide a
+    hide har talk
+    hide anastasia talk
+    hide maria
+    with fade
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
 
     t "Харитонов, ну право слово. Позвольте девчонкам. Одну-единственную буханку. А вы сами пока хоть полчаса отдохнёте."
 
-    show kharitonov_annoyed
+    hide tania talk
+    with fade
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
+
+    show maria:
+        zoom 1.2
+        pos (0, 250)
+
+    show anastasia:
+        zoom 1.1
+        pos (1200, 250)
+
     h "Татьяна Николаевна! Да с ними хлопот — в два раза больше. Не видать мне с ними никакого отдыху. Они ж не стряпать — они воевать пришли."
 
-    show maria at left
-    show anastasia at right
-    hide tatyana
+    show har:
+        zoom 1.1
+        pos (650, 150)
+    
+    show maria talk:
+        zoom 1.2
+        pos (0, 250)
 
     m "Дя-а-а-денька..."
+
+    show maria:
+        zoom 1.2
+        pos (0, 250)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (1200, 250)
+
     a "Ну пожа-а-а-алуйста..."
 
-    show kharitonov_smile
+    show anastasia:
+        zoom 1.1
+        pos (1200, 250)
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
+
     h "Ла-а-адно. Уговорили, сорванцы. Вон подите в кладовой фартуки возьмите. Да такие, чтоб не жалко. И руки потом мыть — до локтей."
 
     hide maria
     hide anastasia
+    hide har talk
+    with fade
+
     "Девочки с визгом убегают."
 
     scene bg kitchen with fade
-    show kharitonov at center
-    show tatyana at right
+
+    show tania 2:
+        zoom 1.2
+        pos (1200, 150)
 
     "Татьяна ждёт у двери."
 
-    show maria at left
-    show anastasia at right
+    show anastasia 2:
+        zoom 1.1
+        pos (600, 250)
+
+    show maria:
+        zoom 1.2
+        pos (100, 250)
+    with fade
+
     "Анастасия и Мария возвращаются, перепоясанные в огромные фартуки."
+
+    show tania talk 2:
+        zoom 1.2
+        pos (1200, 150)
 
     t "Давайте, я помогу."
 
+    show tania 2:
+        zoom 1.2
+        pos (1200, 150)
+
     "Татьяна молча завязывает каждой хвост, поправляет воротник Марии, целует ту в макушку и уходит."
 
-    hide tatyana
+    hide tania 2
+    with fade
 
-    show kharitonov at center
+    show har talk 2:
+        zoom 1.1
+        pos (1200, 150)
+
     h "Ну, боярышни-поварихи, что печь будем? По-французски — багет, чтоб хрустел, али по-нашему — каравай, чтоб душу грел?"
+
+    hide har talk 2
+    hide anastasia 2
+    hide maria
 
     menu:
         "Багет":
             $ bread_type = "baguette"
+
+            show har talk:
+                zoom 1.1
+                pos (650, 150)
+
             h "Ох и выдумщицы! Царскую кровь в вас, барышни, даже самой суровой мукой не перебить. Франция, стало быть, в атаку. Ну, смотрите."
         "Каравай":
             $ bread_type = "karavay"
+
+            show har talk:
+                zoom 1.1
+                pos (650, 150)
+
             h "То-то же. Мягкий русский каравай любого француза с его багетом уделает. Записывайте рецепт на носы."
 
     h "Значит так. Стол мукой присыпаем. Горстку муки - горкой. В горке - ямочку."
     h "В ямочку - яйца. Потом - соль. Потом - водичкой разбавляем. Неспешно."
+
+    hide har talk
 
     call baking_minigame
 
