@@ -5081,15 +5081,6 @@ label card_game_player_wins:
     scene bg live even with fade
     
     if player_is_nikolai:
-        show nikolai at left
-        show aleksandra at right
-    else:
-        show aleksandra at left
-        show nikolai at right
-    
-    show children_back at center
-    
-    if player_is_nikolai:
 
         show nick talk:
             zoom 1.1
