@@ -1774,153 +1774,615 @@ label activities:
     scene bg live morn with fade
     
     "После завтрака семья собирается в гостиной. Александра Фёдоровна чувствует себя лучше и сидит с детьми."
-    
-    show al
-    show t
-    show a
-    show m
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+    with fade
     
     "Татьяна, как всегда, помогает матери. В руках у неё небольшая книга в тёмном переплёте."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Таня, почитай нам сегодня. У меня так болит голова, что трудно самой держать книгу."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "Конечно, мама. Что бы вы хотели?"
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "То место, где о милосердии. Мы вчера остановились."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     "Татьяна открывает книгу на закладке - выцветшей розовой ленточке."
+
+    hide tania
+    hide sasha
+    with fade
+
+    show anastasia:
+        zoom 1.1
+        pos (600, 250)
 
     if not inventory.has_item(2):
         menu:
             "Рассмотреть закладку":
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+                with fade
+
                 "Анастасия замечает, что закладка необычная — на конце пришит маленький крестик из бисера."
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia talk:
+                    zoom 1.1
+                    pos (900, 250)
+
                 a "Таня, какая красивая закладка! Ты сама сделала?"
+
+                show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+
                 t "Да, ещё в Царском Селе. Мама помогла."
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia talk:
+                    zoom 1.1
+                    pos (900, 250)
+
                 a "Можно посмотреть поближе?"
+
+                show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+
                 t "Конечно, Настя."
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+
                 "Анастасия берёт закладку в руки. Шёлк выцвел, но работа видна - аккуратная, терпеливая."
                 "Внутренний голос Анастасии" "Таня всегда была самой терпеливой из нас. Даже в мелочах."
                 $ inventory.add_item(2)
                 "Анастасия возвращает закладку на место, но запоминает её."
+
+                hide anastasia talk
+                hide tania
+                with fade
+
             "Промолчать":
+
+                show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+                with fade
+
                 "Анастасия не хочет отвлекать сестру. Она просто слушает, как Татьяна читает Евангелие."
                 "Голос сестры звучит мягко и спокойно. На душе становится чуть легче."
                 "Внутренний голос Анастасии" "Хорошо, что есть Таня. Она всегда знает, что сказать."
+
+                hide anastasia talk
+                hide tania
+                with fade
     
     if inventory.has_item(2):
+
+        show anastasia:
+            zoom 1.1
+            pos (600, 250)
+
         "Внутренний голос Анастасии" "Таня так трепетно относится к этой книге. Интересно, что она там отмечала?"
+
+        hide anastasia
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
     
     t "Здесь... 'Будьте милосердны, как и Отец ваш милосерд. Не судите, и не будете судимы; не осуждайте, и не будете осуждены; прощайте, и прощены будете.'"
+
+    hide tania talk
+    with fade
     
     "Тишина в комнате. Даже Алексей, который обычно ёрзает, затихает на своей кровати."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Слышите, дети? 'Прощайте, и прощены будете'. Мы должны помнить об этом каждый день."
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     n "Даже когда нам трудно прощать?"
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
     
     "Николай Александрович подходит к жене и садится рядом."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Особенно когда трудно, Ники. Тогда это hardest... как это по-русски... самое важное."
     
-    show nikolay at center behind alexandra with dissolve
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     n "Ты всегда была мудрее меня в этих вопросах, Сана."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Я просто научилась видеть Бога во всём, что происходит. Даже здесь, в этом доме."
+
+    hide sasha
+    hide nick
+    with fade
+
+    show tania:
+        zoom 1.2
+        pos (600, 150)
     
     "Татьяна продолжает читать, её голос звучит мягко и успокаивающе."
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
     
     t "'Давайте, и дастся вам: мерою доброю, утрясенною, нагнетенною и переполненною отсыплют вам в лоно ваше...'"
+
+    hide tania talk
+    with fade
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 240)
     
     "Анастасия, сидящая рядом, шепчет Марии:"
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
     
     a "Я ничего не понимаю, но так красиво звучит..."
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (300, 240)
     
     m "Тише, Настя. Это же Евангелие."
+
+    hide anastasia
+    hide maria
+    with fade
+
+    show sasha:
+        zoom 1.3
+        pos (600, 100)
     
     "Александра Фёдоровна ласково смотрит на дочерей."
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
     
     al "Татьяна, остановись здесь. Дай детям подумать."
+
+    hide sasha
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
     
     t "Мама, а Вы правда верите, что нас отсюда выпустят?"
+
+    hide tania
     
     "Вопрос повисает в воздухе. Все замирают."
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
     
     al "Я верю, что всё, что происходит — Промысл Божий. Мы должны быть благодарны за каждый день вместе."
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
     
     n "Сана права. Мы живы, мы все здесь, мы вместе. Это уже много."
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
     
     ax "Но папа, я хочу домой... В Царское..."
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
     
     "Голос Алексея дрожит. Александра подходит к сыну, гладит по голове."
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
     
     al "Лешенька, наш дом там, где мы все. И там, где Бог. А Бог везде с нами."
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
     
     "Алексей утыкается в плечо матери, и та тихо шепчет ему что-то на ухо."
+
+    hide sasha
+    hide alex
+    hide nick
+    with fade
     
     if inventory.has_item(2):
         call secret_dialog_morning from _call_secret_dialog_morning
     
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
 
     "Татьяна закрывает книгу, но не убирает её — держит в руках, поглаживая обложку."
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "Мама, можно я сегодня сама выберу место для вечернего чтения?"
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Конечно, моя хорошая. Ты уже достаточно взрослая, чтобы выбирать."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     "Татьяна улыбается, но в её глазах стоит грусть."
+
+    hide sasha
+    hide tania
+
+    show olga talk:
+        zoom 1.2
+        pos (550, 170)
+    with fade
     
     o "А можно мы с Настей пойдём на кухню? Харитонов обещал показать, как хлеб печь."
+
+    hide olga talk
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
     
     al "Идите, девочки. Только не мешайте Ивану Михайловичу."
+
+    hide sasha talk
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 240)
     
     a "Ура! Мария, пойдёшь с нами?"
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (300, 240)
     
     m "Конечно! Я тоже хочу научиться."
+
+    hide anastasia talk
+    hide maria talk
     
     "Сёстры убегают, оставляя Татьяну с родителями."
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+    with fade
     
     n "Таня, ты сегодня какая-то задумчивая. Всё хорошо?"
+
+    hide nick talk
+    hide sasha
+
+    show tania talk 2:
+        zoom 1.2
+        pos (600, 150)
     
     t "Папа... Я просто думаю о том, что мама сказала. О благодарности."
     
     t "Я благодарна. Правда. За каждый день, за вас, за сестёр, за Алексея..."
     
     t "Но иногда мне так страшно, что я не могу дышать. Особенно ночью."
+
+    hide tania talk 2
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     "Николай и Александра переглядываются."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Иди к нам, доченька."
+
+    hide sasha talk
+    hide nick
+    with fade
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show tania 2:
+        zoom 1.2
+        pos (800, 150)
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
     
     "Татьяна подходит, и родители обнимают её вдвоём."
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
     
     n "Знаешь, Таня, даже императоры боятся. Даже мы. Это нормально."
     
     n "Но мы должны быть сильными. Не для себя — для Алексея, для младших. Ты понимаешь?"
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show tania talk 2:
+        zoom 1.2
+        pos (800, 150)
     
     t "Понимаю, папа. Я стараюсь."
+
+    show tania 2:
+        zoom 1.2
+        pos (800, 150)
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
     
     al "Мы знаем. И мы гордимся тобой."
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
     
     "Татьяна вытирает глаза и пытается улыбнуться."
+
+    show tania talk 2:
+        zoom 1.2
+        pos (800, 150)
     
     t "Я пойду, проверю, как там девочки. А то Настя опять муку везде рассыплет."
+
+    hide tania 2 talk
+    hide sasha
+    hide nick
+    with fade
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     "Родители смеются, и Татьяна выходит."
     
     "Александра смотрит вслед дочери, и её лицо омрачается."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Ники... Они такие молодые. Им бы жить, танцевать, влюбляться..."
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     n "Я знаю, Сана. Знаю."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "За что они страдают? Чем они заслужили?"
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     n "Не мы выбираем свой крест. Мы можем только нести его с достоинством."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
     
     al "Наши дети несут его лучше нас."
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
     
     "Николай обнимает жену. Несколько минут они стоят молча, глядя в забеленное окно."
+
+    hide sasha
+    hide nick
 
     scene black with fade
     "Через час в доме запахнет свежим хлебом. На кухне будет слышен смех сестёр и ворчание повара Харитонова, который делает вид, что сердится, но на самом деле рад."
@@ -1930,45 +2392,192 @@ label activities:
 
 label secret_dialog_morning:
     
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+    
     "Татьяна перелистывает страницы и на мгновение замирает."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "Мама... Здесь, где я отметила. Можно прочитать?"
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Прочитай, Таня."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "'Блаженны изгнанные за правду, ибо их есть Царство Небесное. Блаженны вы, когда будут поносить вас и гнать и всячески неправедно злословить за Меня.'"
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     "Тишина. Даже Анастасия, обычно непоседливая, застывает."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "Мама... Это же про нас, да? 'Изгнанные за правду'..."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Подойди ко мне, девочка моя."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     "Татьяна подходит, и Александра Фёдоровна обнимает её, прижимая к себе."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Про нас, моя родная. Про нас."
     
     al "Знаешь, Таня, я много думала об этих словах. 'Блаженны' — значит счастливы. Счастливы изгнанные."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "Как мы можем быть счастливы здесь, мама?"
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Потому что нас изгнали за то, что мы не предали. Не предали веру, не предали друг друга, не предали Россию."
     
     al "Нас лишили дворцов, но не лишили любви. Нас лишили власти, но не лишили достоинства."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "А Бог... Он видит?"
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Он видит всё, Таня. И он с нами. Особенно сейчас."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     "Александра целует дочь в лоб."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Сохрани эту веру. Она нужнее, чем хлеб. Нужнее, чем вода."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
     
     t "Я постараюсь, мама."
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     al "Я знаю. Ты моя сильная девочка."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
     
     "Они сидят обнявшись, пока остальные тихо занимаются своими делами."
+
+    hide tania
+    hide sasha
     
     
 
