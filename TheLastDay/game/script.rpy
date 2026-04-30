@@ -1768,63 +1768,63 @@ label activities:
         "Рассмотреть закладку":
 
             show tania:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia:
-                    zoom 1.1
-                    pos (900, 250)
-                with fade
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+            with fade
 
             "Анастасия замечает, что закладка необычная — на конце пришит маленький крестик из бисера."
 
             show tania:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia talk:
-                    zoom 1.1
-                    pos (900, 250)
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
 
             a "Таня, какая красивая закладка! Ты сама сделала?"
 
             show tania talk:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia:
-                    zoom 1.1
-                    pos (900, 250)
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
 
             t "Да, ещё в Царском Селе. Мама помогла."
 
             show tania:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia talk:
-                    zoom 1.1
-                    pos (900, 250)
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
 
             a "Можно посмотреть поближе?"
 
             show tania talk:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia:
-                    zoom 1.1
-                    pos (900, 250)
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
 
             t "Конечно, Настя."
 
             show tania:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia:
-                    zoom 1.1
-                    pos (900, 250)
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
 
             "Анастасия берёт закладку в руки. Шёлк выцвел, но работа видна - аккуратная, терпеливая."
             ia "Таня всегда была самой терпеливой из нас. Даже в мелочах."
@@ -1833,27 +1833,27 @@ label activities:
             "Анастасия возвращает закладку на место, но запоминает её."
 
             hide anastasia talk
-                hide tania
-                with fade
+            hide tania
+            with fade
 
         "Промолчать":
 
             show tania:
-                    zoom 1.2
-                    pos (300, 150)
+                zoom 1.2
+                pos (300, 150)
 
-                show anastasia:
-                    zoom 1.1
-                    pos (900, 250)
-                with fade
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+            with fade
 
             "Анастасия не хочет отвлекать сестру. Она просто слушает, как Татьяна читает Евангелие."
             "Голос сестры звучит мягко и спокойно. На душе становится чуть легче."
             ia "Хорошо, что есть Таня. Она всегда знает, что сказать."
 
             hide anastasia talk
-                hide tania
-                with fade
+            hide tania
+            with fade
 
     if inventory.has_item(2):
 
