@@ -4244,20 +4244,65 @@ if not inventory.has_item(3):
 
 label free_time:
     scene bg living with fade
-    show t
-    show a
-    show n
-    show m
-    show o
+
     "Ранний вечер. Гостиная."
-    "Татьяна сидит в кресле, вышивает рубашку Алексею. Ольга рядом - узор на канве. Мария и Анастасия расположились на полу, перебирают нитки и листают старый альбом с фотографиями."
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+    
+    show olga 2:
+        zoom 1.2
+        pos (1000, 170)
+    with fade
+
+    "Татьяна сидит в кресле, вышивает рубашку Алексею. Ольга рядом - узор на канве."
+
+    hide olga 2
+    hide tania
+    with fade
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 250)
+
+    "Мария и Анастасия расположились на полу, перебирают нитки и листают старый альбом с фотографиями."
+
+    hide anastasia
+    hide maria
+    with fade
+    
     if not inventory.has_item(4):
             "В углу комнаты Анастасия замечает старую коробку, которую привезли ещё из Тобольска. Она так и стоит неразобранная."
             
             menu:
                 "Предложить сестрам разобрать коробку":
+
+                    show anastasia talk:
+                        zoom 1.1
+                        pos (900, 250)
+
+                    show maria:
+                        zoom 1.2
+                        pos (300, 250)
+                    with fade
+
                     a "Мария, может, посмотрим, что там? Всё равно делать нечего."
+
+                    show anastasia:
+                        zoom 1.1
+                        pos (900, 250)
+
+                    show maria talk 2:
+                        zoom 1.2
+                        pos (300, 250)
+
                     m "Правда! Я совсем забыла про неё."
+
                     scene bg boxes with fade
                     
                     "Сестры пододвигают коробку к себе и начинают аккуратно перебирать её содержимое."
@@ -4301,23 +4346,84 @@ label free_time:
 
     "Анастасия находит старую фотографию, где Таня демонстрирует свою первую вышивку."
 
+    show maria 2:
+        zoom 1.2
+        pos (700, 250)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (1100, 250)
+
+    show tania:
+        zoom 1.2
+        pos (100, 150)
+
     a "Таня, гляди! Ты тут совсем девчушка, как мы с Мари. А в руках у тебя какая красота!"
+
+    show anastasia:
+        zoom 1.1
+        pos (1100, 250)
 
     "Таня поднимает голову, с теплотой смотрит на фотографию и снова возвращается к своей новой работе."
 
+    show maria talk 2:
+        zoom 1.2
+        pos (700, 250)
+
     m "Тань, а что ты сейчас вышиваешь?"
+
+    show maria 2:
+        zoom 1.2
+        pos (700, 250)
+
+    show tania talk:
+        zoom 1.2
+        pos (100, 150)
 
     t "Я вышиваю рубашку Алексею. На локтях она уже протёрлась..."
 
+    show tania:
+        zoom 1.2
+        pos (100, 150)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (1100, 250)
+
     a "Оля, а ты?"
+
+    hide anastasia talk
+    hide tania
+    hide maria 2
+
+    show olga talk:
+        zoom 1.2
+        pos (550, 170)
 
     o "А я подарок Мари. Скоро же её именины… надо подготовиться."
 
+    show olga:
+        zoom 1.2
+        pos (550, 170)
+
     "Пауза. На секунду Ольга замирает."
+
+    show olga talk:
+        zoom 1.2
+        pos (550, 170)
 
     o "Хотя не знаю, будут ли праздновать."
 
+    hide olga talk
+
+    show nick talk 2:
+        zoom 1.1
+        pos (650, 80)
+
     n "Будем праздновать, дети. Всегда будем. Что бы ни случилось."
+
+    hide nick talk 2
+    with fade
 
     "Ольга опускает глаза. Татьяна кусает губу, но продолжает шить."
 
@@ -4325,11 +4431,44 @@ label free_time:
 
     "Анастасия переворачивает страницу альбома. В кромнате беспокойная тишина."
 
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 250)
+    with fade
+
     a "Вот здесь мы в Ливадии. Помните? Папенька в белом, маменька в шляпе… и море."
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (300, 250)
 
     m "Море… Я уже забыла, как оно пахнет."
 
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 250)
+
     a "А в Тобольске пахло снегом. А здесь… здесь ничем не пахнет. Воздух как вата."
+
+    hide maria
+    hide anastasia talk
+    with fade
+
+    show nick 2:
+        zoom 1.1
+        pos (650, 80)
 
     "Николай откладывает книгу. его взгляд падает на..."
 
@@ -4388,9 +4527,24 @@ label free_time:
 
     play sound "audio/door_close.mp3"
 
+    show dem 2:
+        zoom 1.3
+        pos (550, 100)
+
     "В комнату заходит Демидова."
 
+    show dem talk 2:
+        zoom 1.3
+        pos (550, 100)
+
     d "Ваше Величество, Харитонов просит вас к столу. Ужин уже готов. Алексей с Александрой Фёровной уже в зале."
+
+    hide dem talk 2
+
+    show nick talk 2:
+        zoom 1.1
+        pos (650, 80)
+
     n "Пойдёмте, дети, завтра довышиваете."
 
     scene black with fade
