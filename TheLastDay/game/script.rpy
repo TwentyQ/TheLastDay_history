@@ -1,9 +1,9 @@
 # Вы можете расположить сценарий своей игры в этом файле.
 
 # Определение персонажей игры.
-define a = Character("Анастасия", who_color="#FF6E25", what_color="#2c1e0e")
-define ia = Character("Внутренний голос Анастасии", who_color="#9E4417", what_color="#2c1e0e")
-define o = Character("Ольга", who_color="#7D26FF", what_color="#2c1e0e")
+define a = Character("Анастасия", who_color="#d05b20", what_color="#2c1e0e")
+define ia = Character("Внутренний голос Анастасии", who_color="#57250c", what_color="#2c1e0e")
+define o = Character("Ольга", who_color="#521aa7", what_color="#2c1e0e")
 define t = Character("Татьяна", who_color="#4682B4", what_color="#2c1e0e")
 define m = Character("Мария", who_color="#5256B9", what_color="#2c1e0e")
 define n = Character("Николай", who_color="#185F3E", what_color="#2c1e0e")
@@ -870,7 +870,7 @@ label scene_washing:
 
     "Мария наклоняется к сестрам и говорит едва слышно."
 
-    show guard rude:
+    show guard talk:
         zoom 1.4
         pos (1600, 80)
 
@@ -2944,31 +2944,76 @@ label event_water_splash:
 
 label lunch_scene:
     scene bg dinner with fade
-    show nikolai 
-    show aleksandra 
-    show alexey 
-    show olga 
-    show tatyana
-    show kharitonov 
 
     play music "audio/dinner.mp3" loop volume 0.15 fadein 1.0
 
+    show alex talk 2:
+        zoom 1.1
+        pos (300, 180)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     ax "Маменька, ну сколько можно? Сил уже нет! Кушать хочу."
+
+    show alex 2:
+        zoom 1.1
+        pos (300, 180)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
 
     al "Лёшенька, потерпи чуток. Настенька и Машенька старались - для всех нас. Хлеб сами пекли. Разве можно не дождаться?"
 
-    show maria
-    show anastasia
-    hide kharitonov
+    hide alex 2
+    hide sasha talk
+    with fade
 
     stop music fadeout 2.0
+
+    show anastasia talk 2:
+        zoom 1.1
+        pos (800, 250)
+
+    show maria:
+        zoom 1.2
+        pos (200, 250)
+
     a "Внимание! Представляем вам чудо-хлеб от Анастасии и Марии!"
+
+    show anastasia 2:
+        zoom 1.1
+        pos (800, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (200, 250)
 
     m "С пылу, с жару."
 
+    show anastasia 2:
+        zoom 1.1
+        pos (800, 250)
+
+    show maria:
+        zoom 1.2
+        pos (200, 250)
+
     "Девочки смеются, садятся на места."
 
+    hide maria
+    hide anastasia 2
+    with fade
+
+    show olga talk:
+        zoom 1.2
+        pos (550, 170)
+
     o "Какие девчонки молодцы! Такой хлеб сами испекли."
+
+    hide olga talk
 
     if bread_quality == "perfect":
         if bread_type == "karavay":
@@ -2979,11 +3024,75 @@ label lunch_scene:
         hide bread_perfect_round
         hide bread_perfect_oval
 
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex talk:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha:
+            zoom 1.3
+            pos (1200, 100)
+
         ax "Маменька, папенька! Гляньте, какой румяный! А запах..! Можно мне первый ломтик?"
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha talk:
+            zoom 1.3
+            pos (1200, 100)
+
         al "И впрямь! Ну молодцы, ну поварята!"
+
+        hide nick
+        hide alex
+        hide sasha talk
+
+        show olga:
+            zoom 1.2
+            pos (900, 170)
+
+        show tania talk:
+            zoom 1.2
+            pos (300, 150)
+
         t "Какая элегантная, изысканная булка."
+
+        show olga talk:
+            zoom 1.2
+            pos (900, 170)
+
+        show tania:
+            zoom 1.2
+            pos (300, 150)
+
         o "Молодцы, девочки."
+
+        hide olga talk
+        hide tania
+
+        show nick talk:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha:
+            zoom 1.3
+            pos (1200, 100)
+
         n "Храбрые, сильные духом — да ещё и творческие. Горжусь вами, дети."
+
+        hide alex
+        hide nick talk
+        hide sasha
+        with fade
 
     elif bread_quality == "raw":
         if bread_type == "karavay":
@@ -2994,10 +3103,66 @@ label lunch_scene:
         hide bread_raw_round
         hide bread_raw_oval
 
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex talk:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha:
+            zoom 1.3
+            pos (1200, 100)
+        with fade
+
         ax "А внутри… сыровато как-то…"
+
+        show nick talk:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
         n "Это не сырость, Лёша. Это… нежность. По-деревенски. Такой хлеб дольше жуют — дольше сыт будешь."
+
+        hide alex
+        hide nick talk
+        hide sasha
+
+        show anastasia 2:
+            zoom 1.1
+            pos (800, 250)
+
+        show maria talk:
+            zoom 1.2
+            pos (200, 250)
+
         m "Мы боялись пересушить…"
+
+        hide maria talk
+        hide anastasia 2
+
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha talk:
+            zoom 1.3
+            pos (1200, 100)
+
         al "Ничего, Машенька. На войне как на войне. В следующий раз получится."
+
+        hide nick
+        hide alex
+        hide sasha talk
+        with fade
 
     elif bread_quality == "burnt":
         if bread_type == "karavay":
@@ -3008,16 +3173,70 @@ label lunch_scene:
         hide bread_burnt_round
         hide bread_burnt_oval
 
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex talk:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha:
+            zoom 1.3
+            pos (1200, 100)
+        with fade
+
         ax "Маменька, а почему хлеб… горелый?"
+
+        show nick talk:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha:
+            zoom 1.3
+            pos (1200, 100)
+
         n "Ну, Алексей, не кричи так. Девочки старались. Да и не горелый он — так, пропёкся слегка больше обычного."
-        show maria_sad
-        show anastasia_sad
+        
+        hide alex
+        hide nick talk
+        hide sasha
+
+        show anastasia 2:
+            zoom 1.1
+            pos (800, 250)
+
+        show maria:
+            zoom 1.2
+            pos (200, 250)
+
         "Настя и Мария виновато опускают головы."
+
+        hide maria
+        hide anastasia 2
+
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha talk:
+            zoom 1.3
+            pos (1200, 100)
+
         al "Девочки, не вешать нос! Москва тоже не сразу строилась. Главное — от души."
-        hide maria_sad
-        hide anastasia_sad
-        show maria
-        show anastasia
+
+        hide alex
+        hide nick talk
+        hide sasha
+        with fade
 
     else:  
         if bread_type == "karavay":
@@ -3028,21 +3247,91 @@ label lunch_scene:
         hide bread_perfect_round
         hide bread_perfect_oval
 
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex talk:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha:
+            zoom 1.3
+            pos (1200, 100)
+        with fade
+
         ax "Хлеб… какой-то странный…"
+
+        show nick talk:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
         n "Ничего, Лёша. В следующий раз получится лучше."
+
+        hide alex
+        hide nick talk
+        hide sasha
+
+        show anastasia 2:
+            zoom 1.1
+            pos (800, 250)
+
+        show maria talk:
+            zoom 1.2
+            pos (200, 250)
+
         m "Мы старались…"
+
+        hide maria talk
+        hide anastasia 2
+
+        show nick:
+            zoom 1.1
+            pos (200, 80)
+
+        show alex:
+            zoom 1.1
+            pos (800, 180)
+
+        show sasha talk:
+            zoom 1.3
+            pos (1200, 100)
+
         al "И мы это ценим, девочки."
 
-    show kharitonov at center
+        hide nick
+        hide alex
+        hide sasha talk
+        with fade
+
+    show har:
+        zoom 1.1
+        pos (650, 150)
+
     "Харитонов тем временем разлил суп."
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
 
     h "Суп куриный… к царскому столу подан."
 
+    hide har talk
+
+    show nick talk:
+        zoom 1.1
+        pos (600, 80)
+
     n "Господи, благослови…"
 
-    "Все крестятся. Харитонов кланяется, уходит."
+    hide nick talk
+    with fade
 
-    hide kharitonov
+    "Все крестятся. Харитонов кланяется, уходит."
 
     scene bg dinner with dissolve
     show nikolai at left
