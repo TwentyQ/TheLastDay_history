@@ -3334,69 +3334,197 @@ label lunch_scene:
     "Все крестятся. Харитонов кланяется, уходит."
 
     scene bg dinner with dissolve
-    show nikolai at left
-    show aleksandra at center
-    show alexey at right
-    show olga
-    show tatyana
-    show maria
-    show anastasia
 
     "Семья приступает к трапезе."
 
     play sound "audio/cought.mp3"
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
+    with fade
+
     "Александра Фёдоровна начинает сильно кашлять - глухо, надрывно, давясь воздухом."
 
-    show demidova
+    hide sasha talk
+    with fade
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show dem talk:
+        zoom 1.3
+        pos (200, 100)
 
     d "Ваше Величество… Позвать Боткина?"
 
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show dem:
+        zoom 1.3
+        pos (200, 100)
+
     al "Не надо… Анна… Подайка лучше водички… тёплой… Да попроси у Харитонова ромашку — в чай заварю."
+
+    hide dem
+    hide sasha talk
+    with fade
 
     play sound "audio/door_close.mp3"
 
-    hide demidova
-
     "Демидова убегает."
 
-    show alexey_scared
+
+    show alex scary:
+        zoom 1.1
+        pos (700, 180)
+
     ax "..."
-    hide alexey_scared
+
+    hide alex scary
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
 
     "Николай кладёт руку на плечо Александры."
 
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Всё хорошо."
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     "Александра отводит его ладонь - нежно, но твёрдо."
+
+    hide sasha
+    hide alex
+    hide nick
+
+    show olga 2:
+        zoom 1.2
+        pos (1000, 170)
+
+    show tania:
+        zoom 1.2
+        pos (300, 150)
 
     "Татьяна и Ольга переглядываются. Татьяна хочет встать, но Ольга незаметно качает головой - не надо суеты."
 
+    hide tania
+    hide olga
+    with fade
+
     "Кашель стихает. Тишина. Только ложки звенят."
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show olga 2:
+        zoom 1.2
+        pos (900, 170)
 
     n "Солнце сегодня… редкое. Воздух какой."
 
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show olga talk 2:
+        zoom 1.2
+        pos (900, 170)
+
     o "Хорошо бы пройтись, папенька."
+
+    hide olga talk 2
+    hide nick
+
+    show anastasia talk:
+        zoom 1.1
+        pos (300, 250)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
 
     a "О да! Я так устала сидеть. Хоть в саду…"
 
+    show anastasia:
+        zoom 1.1
+        pos (300, 250)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
+
     ax "И я! И я с вами!"
+
+    hide alex talk
+    hide anastasia
+
+    show nick:
+        zoom 1.1
+        pos (600, 80)
 
     n "..." 
     "Николай переводит взгляд на Александру. Та слабо кивает."
 
+    hide nick
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
+
     al "Идите, дети. Только недолго."
+
+    hide sasha talk
+    with fade
 
     "Семья неспешно поднимается."
 
-    show demidova
+    show dem:
+        zoom 1.3
+        pos (550, 100)
 
     play sound "audio/door_close.mp3"
 
     "Демидова возвращается с чашкой ромашкового настоя."
 
+    hide dem
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
+
     al "Погодите минуту… Дай отдышаться."
+
+    show sasha:
+        zoom 1.3
+        pos (600, 100)
+
     "Она делает глоток. Глаза закрывает на секунду."
 
+    hide sasha
+
+    show nick talk:
+        zoom 1.1
+        pos (600, 80)
+
     n "Мы не спешим, Швыбзик. Светит солнце - и слава Богу."
+
+    hide nick talk
 
     jump walk_scene
 
