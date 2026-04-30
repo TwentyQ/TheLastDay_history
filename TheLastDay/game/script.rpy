@@ -848,162 +848,488 @@ label scene_washing:
     scene bg way with dissolve
     play sound "audio/going_hall.mp3"
     "Узкий коридор дома Ипатьева. Сестры идут к уборной в сопровождении красноармейца."
-    show guard rude:
-        pos (1500, 80)
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
+    with fade
 
-    show maria talk:
-        pos (-300, 150)
-
-    show anastasia talk:
-        pos (400, 150)
-
-    with Dissolve(0.2)
-    
     g "Шевелитесь, барышни. Нечего тут прохлаждаться."
-    
+
+    hide guard talk
+
     if inventory.has_item(1):
+        show anastasia shy 2:
+            zoom 1.2
+            pos (600, 200)
+
         ia "Грубит, как всегда. Но сегодня я почему-то не злюсь."
-    
+
+        hide anastasia shy 2
+        with fade
+
 
     "Мария наклоняется к сестрам и говорит едва слышно."
 
     show guard rude:
+        zoom 1.4
         pos (1600, 80)
 
-    hide anastasia talk
+    show maria sleepy:
+        zoom 1.3
+        pos (550, 200)
 
-    hide maria talk
-
-    show maria talk:
-        pos (300, 150)
-
-    with Dissolve(0.2)
-    
     m "Этот вчера у Тани спросил, не скучно ли нам без балов."
-    
-    hide maria talk
+
+    hide maria sleepy
+
+    show tania shy 2:
+        zoom 1.3
+        pos (550, 130)
 
     "Татьяна бледнеет, но отвечает шепотом."
-    show tanya talk:
-        pos (300, 150)
 
-    with Dissolve(0.2)
+    show tania sleepy 2:
+        zoom 1.3
+        pos (550, 130)
 
     t "Я сделала вид, что не слышу. Мама велела не отвечать на грубости."
-    
+
+    hide tania sleepy
+
+    show olga sleepy:
+        zoom 1.5
+        pos (500, 150)
+
     o "Главное, чтобы Алексея не тревожили. У него ночью нога болела. Я слышала, он стонал."
-    
+
+    hide olga sleepy
+    hide guard
+
     "Анастасия вспоминает, что вчера видела что-то странное."
-    
+
+    show guard:
+        zoom 1.4
+        pos (1600, 80)
+
+    show anastasia sleepy 2:
+        zoom 1.2
+        pos (600, 200)
+
     a "Я слышала, Леню Седнева куда-то увели вчера."
-    
+
+    hide anastasia sleepy 2
+
+    show maria sleepy:
+        zoom 1.3
+        pos (550, 200)
+
     m "Этот поваренок... Жаль, ведь они с Лешенькой дружили."
-    
+
+    hide maria sleepy
+
+    show tania sleepy 2:
+        zoom 1.3
+        pos (550, 130)
+
     t "Да. Мама тоже тревожится, увидим ли мы вновь этого мальчика."
-        
+
+    hide tania shy 2
+    hide guard
+
     if inventory.count_found() >= 1:
         window hide
         menu:
             "Поделиться находкой с сестрами":
+
+                show guard:
+                    zoom 1.4
+                    pos (1600, 80)
+
+                show anastasia sleepy 2:
+                    zoom 1.2
+                    pos (600, 200)
+
                 a "Девочки... Я сегодня иконку нашла. На тумбочке лежала. Та, спасовая."
+
+                hide anastasia sleepy 2
+
+                show olga sleepy:
+                    zoom 1.5
+                    pos (500, 150)
+
                 o "Тише, Настя! Охранник услышит."
                 o "Спрячь получше. Это теперь наша святыня."
+
+                hide olga sleepy
+
+                show tania sleepy 2:
+                    zoom 1.3
+                    pos (550, 130)
+
                 t "Мама говорила, что иконы нас хранят. Может, это знак?"
+
+                hide tania sleepy 2
+
+                show maria sleepy:
+                    zoom 1.3
+                    pos (550, 200)
+
                 m "Конечно, знак! Бог с нами, девочки. Он не оставит."
-                
+
+                hide maria sleepy
+                hide guard
+
             "Промолчать о находке":
+
+                show anastasia shy 2:
+                    zoom 1.2
+                    pos (600, 200)
+
                 ia "Слишком опасно — охрана может услышать. Расскажу вечером, когда останемся одни."
-    
+                hide anastasia shy 2
+
+
     # Подходим к уборной
     scene bg bath with dissolve
-    
+
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
+
     g "Заходите по одной. Остальные ждите здесь."
-    
+
+    hide guard talk
+
     play sound "audio/door_close.mp3"
 
     "Первой заходит Ольга. Сестры ждут в коридоре под присмотром охраны."
-    
-    
+
+
     window hide
     menu:
         "Переглянуться с Марией":
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria shy:
+                zoom 1.3
+                pos (300, 200)
+
             "Анастасия ловит взгляд Марии. Та улыбается — той самой своей светлой улыбкой, которая всегда согревает."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria sleepy:
+                zoom 1.3
+                pos (300, 200)
+
             m "Помнишь, как в Царском мы бегали к пруду купаться? А мама потом ругалась, что мы мокрые?"
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria shy:
+                zoom 1.3
+                pos (300, 200)
+
             a "Помню. Ты тогда в платье в воду прыгнула, потому что жарко было."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria sleepy:
+                zoom 1.3
+                pos (300, 200)
+
             m "А Татьяна нас прикрывала, говорила, что мы просто облились."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show maria shy:
+                zoom 1.3
+                pos (300, 200)
+
             "Сестры тихо смеются, но тут же замолкают — охранник оборачивается."
             ia "Хорошо, что есть Мария. Она умеет напомнить, что мы просто девочки, а не узницы."
-            
+
+            hide anastasia shy
+            hide maria shy
+
         "Посмотреть на охранника":
+
+            show anastasia shy 2:
+                zoom 1.2
+                pos (200, 200)
+
+            show guard:
+                zoom 1.4
+                pos (1100, 80)
+
             "Анастасия внимательно смотрит на красноармейца. Ей кажется, что сегодня он ведет себя иначе — более нервно, часто оглядывается, теребит винтовку."
             ia "Он будто ждет чего-то. Или боится. Интересно, о чем они думают, эти солдаты? Снятся ли им те, кого они стерегут?"
+
+            hide guard
+
+            show guard 2:
+                zoom 1.4
+                pos (1100, 80)
+
             "Охранник ловит взгляд Анастасии"
+
+            show guard talk 2:
+                zoom 1.4
+                pos (1100, 80)
+
             g "Чего уставилась? Отвернись."
+
+            show guard 2:
+                zoom 1.4
+                pos (1100, 80)
+
+            show anastasia shy:
+                zoom 1.2
+                pos (200, 200)
+
             "Анастасия отводит глаза, но чувство тревоги не проходит."
-            
+
+            show guard:
+                zoom 1.4
+                pos (1100, 80)
+
             if inventory.has_item(1):
                 "Анастасия машинально сжимает в кармане икону."
                 ia "Господи, сохрани нас. Что бы ни случилось — сохрани."
-    
-    show olga at left with dissolve
-    
+
+            hide guard
+            hide anastasia shy
+
+    show olga sleepy:
+        zoom 1.5
+        pos (500, 150)
+    with fade
+
     o "Я закончила. Таня, иди ты."
-    
+
+    hide olga sleepy
+
     play sound "audio/door_close.mp3"
 
     "Татьяна заходит в уборную. Ожидание продолжается."
-    
-    # Второй раунд мини-выборов
+
     window hide
     menu:
         "Спросить Ольгу о самочувствии Алексея":
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             a "Оля, ты говорила, у Алексея нога болела. Он сильно мучился?"
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga sleepy:
+                zoom 1.5
+                pos (220, 150)
+
             o "Я слышала, как он плакал ночью. Тихо так, в подушку. Чтобы мама не слышала."
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             a "Бедный Лешка. Он же совсем мальчик еще, а терпит как взрослый."
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga sleepy:
+                zoom 1.5
+                pos (220, 150)
+
             o "Папа говорит, казаки так терпят. А Леша хочет быть казаком."
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             "Ольга грустно улыбается."
-            
+
+            hide olga shy
+            hide anastasia shy
+
         "Спросить Ольгу, что думает о словах охранника про балы":
+
+            show anastasia sleepy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga shy:
+                zoom 1.5
+                pos (220, 150)
+
             a "Оля, а тот охранник... про балы спросил. Это же издевательство, да?"
+
+            show anastasia shy:
+                zoom 1.2
+                pos (960, 200)
+
+            show olga sleepy:
+                zoom 1.5
+                pos (220, 150)
+
             o "Конечно. Но мы не должны показывать, что нам больно. Мама права — молчание лучшее оружие."
             o "Пусть думают, что мы не понимаем, не чувствуем. Мы-то знаем правду."
-            
+            hide olga sleepy
+            hide anastasia shy
+
         "Просто стоять молча":
+
+            show anastasia shy 2:
+                zoom 1.2
+                pos (600, 200)
+
             "Анастасия молчит, думая о своем. Сестры рядом, но каждая погружена в свои мысли."
             ia "Сколько еще это будет продолжаться? Месяц? Год? Всегда?"
-    
-    # Выходит Татьяна, заходит Мария
-    show tatiana at left behind olga with dissolve
-    hide maria
-    
+
+            hide anastasia shy 2
+
+    show tania shy:
+        zoom 1.3
+        pos (550, 130)
+    with fade
+
     "Мария заходит в уборную. Татьяна присоединяется к сестрам."
     play sound "audio/door_close.mp3"
-    
-    # Диалог с Татьяной
+
+    hide tania shy
+
+    show anastasia shy 2:
+        zoom 1.2
+        pos (500, 200)
+
+    show olga shy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+    with fade
+
     t "Вода ледяная. Но я быстро."
-    
+
+    show olga sleepy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
     o "Таня, ты бледная. Не заболела?"
-    
+
+    show olga shy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+
     t "Нет. Просто не выспалась. Думала о Лене Седневе всю ночь."
+
+    show anastasia sleepy 2:
+        zoom 1.2
+        pos (500, 200)
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
     a "Таня, не переживай. Может, его правда к дяде отпустили?"
+
+    show anastasia shy 2:
+        zoom 1.2
+        pos (500, 200)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+
     t "А если нет, Настя? Если с ним что-то случилось? Он же совсем ребенок."
+
+    show olga sleepy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
     o "Татьяна, не накручивай себя. Мама сказала — будем надеяться на лучшее."
+
+    show olga shy:
+        zoom 1.5
+        pos (-100, 150)
+
+    show tania sleepy:
+        zoom 1.3
+        pos (1200, 130)
+
     t "Легко сказать... Я помню его глаза, когда его уводили. Он будто знал что-то."
-            
-    # Выходит Мария
-    show maria at left behind tatiana with dissolve
+
+    show tania shy:
+        zoom 1.3
+        pos (1200, 130)
+
+    hide olga shy
+    hide tania shy
+    hide anastasia shy 2
+    with fade
+
+    show maria sleepy:
+        zoom 1.3
+        pos (550, 200)
 
     play sound "audio/door_close.mp3"
-    
+
     m "Фух, вода холоднющая! Я аж подпрыгнула."
-    
+
+    hide maria sleepy
+
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
+
     g "Все вышли? Тогда назад. Живо."
-    
+
+    hide guard talk
+
     "Сестры возвращаются по коридору."
 
     play sound "audio/going_hall.mp3"
-    
-    
+
+
     # Переход к завтраку
     scene black with fade
 
@@ -1013,50 +1339,113 @@ label scene_washing:
 label breakfast:
     scene bg dinner with fade
     play music "audio/dinner.mp3" loop volume 0.15 fadein 1.0
-    
+
     "Семья собирается в столовой. Алексей сидит бледный, нога опухла."
-    
-    show nikolay
-    show ax
-    show al
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+    with fade
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
 
     stop music fadeout 2.0
-    
+
     n "Как нога, мой мальчик?"
-    
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
+
     ax "Терпимо, Папа. Только если резко повернуться - больно."
-    
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
+
     al "Я просила доктора Боткина посмотреть. Он придет после завтрака."
 
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+
+    hide sasha
+    hide alex
+    hide nick
+
     play sound "audio/door_close.mp3"
-    
-    show b at center behind nikolay with dissolve
-    
+
+    show botkin talk:
+        zoom 1.1
+        pos (600, 100)
+    with fade
+
     b "Уже пришел, Ваше Величество."
-    
+
+    show botkin:
+        zoom 1.1
+        pos (600, 100)
+
     "Доктор Боткин подходит к Алексею."
-    
+
+    show botkin talk:
+        zoom 1.1
+        pos (400, 100)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
     b "Позволите?"
+
+    show botkin:
+        zoom 1.1
+        pos (400, 100)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
 
     ax "Да, доктор."
 
+    hide alex
+    hide botkin
+
     # Вызов мини-игры
     call minigame_help_doctor from _call_minigame_help_doctor
-    
+
     # После мини-игры
-    
+
     jump activities
 
 
 label minigame_help_doctor:
-    
+
     scene bg game with fade
 
     "Анастасия помогает доктору Боткину перевязать ногу Алексея."
 
     b "Княжна, сегодня я хочу научить вас правильной медицинской процедуре."
     b "Запоминайте внимательно. Я скажу только один раз."
-    
+
     b "Первое: осмотреть ногу и спросить пациента о самочувствии."
     b "Второе: подготовить воду и проверить её температуру — не горячая ли, не холодная ли."
     b "Третье: смочить ткань в подготовленной воде."
@@ -1067,26 +1456,27 @@ label minigame_help_doctor:
     b "Восьмое: подложить подушку под ногу для оттока крови."
     b "Девятое: укрыть ногу одеялом — пациенту должно быть тепло."
     b "И десятое: сказать Алексею ободряющие слова. Это не менее важно, чем лекарства."
-    
+
     b "Всё запомнили? Тогда приступайте. Я буду наблюдать."
-    
+
+
     $ correct_sequence = [
-        "осмотр", 
-        "вода", 
-        "ткань", 
-        "компресс", 
-        "пауза", 
-        "мазь", 
-        "бинты", 
-        "подушка", 
-        "одеяло", 
+        "осмотр",
+        "вода",
+        "ткань",
+        "компресс",
+        "пауза",
+        "мазь",
+        "бинты",
+        "подушка",
+        "одеяло",
         "слова"
     ]
-    
+
     $ step_names = {
         "осмотр": "осмотреть ногу и спросить о боли",
         "вода": "подготовить воду и проверить температуру",
-        "ткань": "смочить ткань", 
+        "ткань": "смочить ткань",
         "компресс": "приложить компресс",
         "пауза": "подождать 30 секунд",
         "мазь": "нанести мазь",
@@ -1095,18 +1485,18 @@ label minigame_help_doctor:
         "одеяло": "укрыть одеялом",
         "слова": "сказать ободряющие слова"
     }
-    
+
     $ player_sequence = []
     $ mistakes = 0
     $ max_mistakes = 3
     $ hint_used = False
-    
+
 
     while len(player_sequence) < len(correct_sequence) and mistakes < max_mistakes:
-        
+
         $ next_step = correct_sequence[len(player_sequence)]
         $ step_num = len(player_sequence) + 1
-        
+
         if step_num <= 4:
             $ menu_items = [
                 ("Осмотреть ногу", "осмотр"),
@@ -1119,41 +1509,41 @@ label minigame_help_doctor:
             ]
             if not hint_used:
                 $ menu_items.append(("Попросить подсказку", "подсказка"))
-            
+
             $ renpy.random.shuffle(menu_items)
-            
+
             $ choice = renpy.display_menu(
                 [(item[0], item[1]) for item in menu_items],
                 screen="choice",
                 title="Этап подготовки (шаг [step_num]/10):"
             )
-            
+
             if choice == "осмотр" and next_step == "осмотр" and "осмотр" not in player_sequence:
                 $ player_sequence.append("осмотр")
                 "Анастасия осматривает ногу Алексея."
                 ax "Щиколотка болит, но терпимо."
                 "Боткин одобрительно кивает."
-                
+
             elif choice == "вода" and next_step == "вода" and "вода" not in player_sequence:
                 $ player_sequence.append("вода")
                 "Анастасия приносит воду и пробует пальцем."
                 a "Тёплая, в самый раз."
                 b "Хорошо."
-                
+
             elif choice == "ткань" and next_step == "ткань" and "ткань" not in player_sequence:
                 $ player_sequence.append("ткань")
                 "Анастасия смачивает чистую ткань в подготовленной воде."
-                
+
             elif choice == "компресс" and next_step == "компресс" and "компресс" not in player_sequence:
                 $ player_sequence.append("компресс")
                 "Анастасия аккуратно прикладывает влажную ткань к опухоли."
                 ax "Прохладно... но приятно."
-                
+
             elif choice == "подсказка":
                 $ hint_used = True
                 "Анастасия" "Доктор, я забыла... Что сейчас?"
                 b "Сейчас этап подготовки. Нужно [step_names[next_step]]."
-                
+
             else:
                 $ mistakes += 1
                 if choice == "мазь_ошибка":
@@ -1164,7 +1554,7 @@ label minigame_help_doctor:
                     b "Подушка в самом конце, после всех процедур."
                 else:
                     b "Не сейчас. Нужно следовать порядку."
-        
+
         elif step_num <= 7:
             $ menu_items = [
                 ("Подождать", "пауза"),
@@ -1176,35 +1566,35 @@ label minigame_help_doctor:
             ]
             if not hint_used:
                 $ menu_items.append(("Попросить подсказку", "подсказка"))
-            
+
             $ renpy.random.shuffle(menu_items)
-            
+
             $ choice = renpy.display_menu(
                 [(item[0], item[1]) for item in menu_items],
                 screen="choice",
                 title="Этап лечения (шаг [step_num]/10):"
             )
-            
+
             if choice == "пауза" and next_step == "пауза" and "пауза" not in player_sequence:
                 $ player_sequence.append("пауза")
                 "Анастасия ждёт, считая про себя."
                 $ renpy.pause(2.0)
                 b "Терпение — важная часть лечения."
-                
+
             elif choice == "мазь" and next_step == "мазь" and "мазь" not in player_sequence:
                 $ player_sequence.append("мазь")
                 "Анастасия берёт мазь и аккуратно наносит поверх компресса."
-                
+
             elif choice == "бинты" and next_step == "бинты" and "бинты" not in player_sequence:
                 $ player_sequence.append("бинты")
                 "Анастасия осторожно бинтует ногу — не туго, но и не слабо."
                 ax "Нормально, не давит."
-                
+
             elif choice == "подсказка":
                 $ hint_used = True
                 "Анастасия" "Доктор, я забыла... Что сейчас?"
                 b "Сейчас этап лечения. Нужно [step_names[next_step]]."
-                
+
             else:
                 $ mistakes += 1
                 if choice == "подушка_ошибка":
@@ -1215,7 +1605,7 @@ label minigame_help_doctor:
                     b "Добрые слова — в самом конце, когда всё уже сделано."
                 else:
                     b "Не сейчас. Нужно следовать порядку."
-        
+
         else:
             $ menu_items = [
                 ("Подложить подушку", "подушка"),
@@ -1227,52 +1617,52 @@ label minigame_help_doctor:
             ]
             if not hint_used:
                 $ menu_items.append(("Попросить подсказку", "подсказка"))
-            
+
             $ renpy.random.shuffle(menu_items)
-            
+
             $ choice = renpy.display_menu(
                 [(item[0], item[1]) for item in menu_items],
                 screen="choice",
                 title="Этап завершения (шаг [step_num]/10):"
             )
-            
+
             if choice == "подушка" and next_step == "подушка" and "подушка" not in player_sequence:
                 $ player_sequence.append("подушка")
                 "Анастасия подкладывает подушку под ногу Алексея."
-                
+
             elif choice == "одеяло" and next_step == "одеяло" and "одеяло" not in player_sequence:
                 $ player_sequence.append("одеяло")
                 "Анастасия укрывает ногу Алексея одеялом."
                 ax "Тепло... Спасибо, Настя."
-                
+
             elif choice == "слова" and next_step == "слова" and "слова" not in player_sequence:
                 $ player_sequence.append("слова")
                 menu:
                     "Что сказать Алексею?"
-                    
+
                     "«Ты смелый, Лёшенька. Скоро поправишься.»":
                         a "Ты смелый, Лёшенька. Скоро поправишься."
                         ax "Правда?"
                         a "Правда. Мы же Романовы."
                         ax "Спасибо, Настя."
-                    
+
                     "«Казаки так не плачут, а ты молодец.»":
                         a "Казаки так не плачут, а ты молодец."
                         ax "Я стараюсь."
-                    
+
                     "«Хочешь, потом почитаю тебе?»":
                         a "Хочешь, потом почитаю тебе?"
                         ax "Про казаков?"
                         a "Про казаков."
                         ax "Хорошо..."
-                
+
                 "Алексей слабо улыбается."
-                
+
             elif choice == "подсказка":
                 $ hint_used = True
                 a "Доктор, я забыла... Что сейчас?"
                 b "Мы уже почти закончили. Осталось [step_names[next_step]]."
-                
+
             else:
                 $ mistakes += 1
                 if choice == "осмотр_ошибка":
@@ -1283,241 +1673,851 @@ label minigame_help_doctor:
                     b "Мазь уже нанесена. Сейчас только завершающие шаги."
                 else:
                     b "Не сейчас. Нужно следовать порядку."
-    
+
 
     if mistakes >= max_mistakes:
         b "Княжна, медицина требует точности. Давайте я закончу сам."
         "Боткин быстро и профессионально завершает процедуру."
         "Анастасия расстроена, но Алексей сжимает её руку."
         ax "Ничего, Настя. Ты старалась."
-        
+
     else:
         b "Превосходно, княжна!"
         b "Из вас выйдет замечательная сестра милосердия."
-        
+
         if mistakes == 0:
             b "И ни одной ошибки! Ваши родители могут гордиться."
-        
+
         if hint_used:
             b "Вы не побоялись спросить — это тоже признак настоящего врача."
         else:
             b "Вы всё запомнили с первого раза. Редкий дар."
-        
+
         ax "Настя... Спасибо. Правда легче стало."
         "Анастасия гладит брата по голове."
         a "Отдыхай, Лёшенька."
-    
+
     jump activities
 
 
 # СЦЕНА: УТРЕННИЕ ЗАНЯТИЯ
 label activities:
     scene bg live morn with fade
-    
+
     "После завтрака семья собирается в гостиной. Александра Фёдоровна чувствует себя лучше и сидит с детьми."
-    
-    show al
-    show t
-    show a
-    show m
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+    with fade
+
     "Татьяна, как всегда, помогает матери. В руках у неё небольшая книга в тёмном переплёте."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Таня, почитай нам сегодня. У меня так болит голова, что трудно самой держать книгу."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "Конечно, мама. Что бы вы хотели?"
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "То место, где о милосердии. Мы вчера остановились."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     "Татьяна открывает книгу на закладке - выцветшей розовой ленточке."
+
 
     play sound "audio/book_turn.mp3"
 
+    hide tania
+    hide sasha
+    with fade
+
+    show anastasia:
+        zoom 1.1
+        pos (600, 250)
+
     menu:
         "Рассмотреть закладку":
+
+            show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+                with fade
+
             "Анастасия замечает, что закладка необычная — на конце пришит маленький крестик из бисера."
+
+            show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia talk:
+                    zoom 1.1
+                    pos (900, 250)
+
             a "Таня, какая красивая закладка! Ты сама сделала?"
+
+            show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+
             t "Да, ещё в Царском Селе. Мама помогла."
+
+            show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia talk:
+                    zoom 1.1
+                    pos (900, 250)
+
             a "Можно посмотреть поближе?"
+
+            show tania talk:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+
             t "Конечно, Настя."
+
+            show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+
             "Анастасия берёт закладку в руки. Шёлк выцвел, но работа видна - аккуратная, терпеливая."
             ia "Таня всегда была самой терпеливой из нас. Даже в мелочах."
             $ inventory.add_item(2)
             play sound "audio/notify.mp3"
             "Анастасия возвращает закладку на место, но запоминает её."
+
+            hide anastasia talk
+                hide tania
+                with fade
+
         "Промолчать":
+
+            show tania:
+                    zoom 1.2
+                    pos (300, 150)
+
+                show anastasia:
+                    zoom 1.1
+                    pos (900, 250)
+                with fade
+
             "Анастасия не хочет отвлекать сестру. Она просто слушает, как Татьяна читает Евангелие."
             "Голос сестры звучит мягко и спокойно. На душе становится чуть легче."
             ia "Хорошо, что есть Таня. Она всегда знает, что сказать."
 
+            hide anastasia talk
+                hide tania
+                with fade
+
     if inventory.has_item(2):
+
+        show anastasia:
+            zoom 1.1
+            pos (600, 250)
+
         ia "Таня так трепетно относится к этой книге. Интересно, что она там отмечала?"
-    
+
+        hide anastasia
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
+
     t "Здесь... 'Будьте милосердны, как и Отец ваш милосерд. Не судите, и не будете судимы; не осуждайте, и не будете осуждены; прощайте, и прощены будете.'"
-    
+
+    hide tania talk
+    with fade
+
     "Тишина в комнате. Даже Алексей, который обычно ёрзает, затихает на своей кровати."
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Слышите, дети? 'Прощайте, и прощены будете'. Мы должны помнить об этом каждый день."
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     n "Даже когда нам трудно прощать?"
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
     "Николай Александрович подходит к жене и садится рядом."
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Особенно когда трудно, Ники. Тогда это hardest... как это по-русски... самое важное."
-    
-    show nikolay at center behind alexandra with dissolve
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     n "Ты всегда была мудрее меня в этих вопросах, Сана."
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Я просто научилась видеть Бога во всём, что происходит. Даже здесь, в этом доме."
-    
+
+    hide sasha
+    hide nick
+    with fade
+
+    show tania:
+        zoom 1.2
+        pos (600, 150)
+
     "Татьяна продолжает читать, её голос звучит мягко и успокаивающе."
-    
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
+
     t "'Давайте, и дастся вам: мерою доброю, утрясенною, нагнетенною и переполненною отсыплют вам в лоно ваше...'"
-    
-    "Анастасия, сидящая рядом, шепчет Марии:"
-    
+
+    hide tania talk
+    with fade
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 240)
+
+    "Анастасия, сидящая рядом, шепчет Марии."
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
     a "Я ничего не понимаю, но так красиво звучит..."
-    
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (300, 240)
+
     m "Тише, Настя. Это же Евангелие."
-    
+
+    hide anastasia
+    hide maria
+    with fade
+
+    show sasha:
+        zoom 1.3
+        pos (600, 100)
+
     "Александра Фёдоровна ласково смотрит на дочерей."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
+
     al "Татьяна, остановись здесь. Дай детям подумать."
-    
+
+    hide sasha
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
+
     t "Мама, а Вы правда верите, что нас отсюда выпустят?"
-    
+
+    hide tania
+
     "Вопрос повисает в воздухе. Все замирают."
-    
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
+
     al "Я верю, что всё, что происходит — Промысл Божий. Мы должны быть благодарны за каждый день вместе."
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+
     n "Сана права. Мы живы, мы все здесь, мы вместе. Это уже много."
-    
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show alex talk:
+        zoom 1.1
+        pos (900, 180)
+
     ax "Но папа, я хочу домой... В Царское..."
-    
+
+    show alex:
+        zoom 1.1
+        pos (900, 180)
+
     "Голос Алексея дрожит. Александра подходит к сыну, гладит по голове."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
+
     al "Лешенька, наш дом там, где мы все. И там, где Бог. А Бог везде с нами."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+
     "Алексей утыкается в плечо матери, и та тихо шепчет ему что-то на ухо."
-    
+
+    hide sasha
+    hide alex
+    hide nick
+    with fade
+
     if inventory.has_item(2):
         call secret_dialog_morning from _call_secret_dialog_morning
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
 
     "Татьяна закрывает книгу, но не убирает её — держит в руках, поглаживая обложку."
-    
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "Мама, можно я сегодня сама выберу место для вечернего чтения?"
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Конечно, моя хорошая. Ты уже достаточно взрослая, чтобы выбирать."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     "Татьяна улыбается, но в её глазах стоит грусть."
-    
+
+    hide sasha
+    hide tania
+
+    show olga talk:
+        zoom 1.2
+        pos (550, 170)
+    with fade
+
     o "А можно мы с Настей пойдём на кухню? Харитонов обещал показать, как хлеб печь."
-    
+
+    hide olga talk
+
+    show sasha talk:
+        zoom 1.3
+        pos (600, 100)
+
     al "Идите, девочки. Только не мешайте Ивану Михайловичу."
-    
+
+    hide sasha talk
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria:
+        zoom 1.2
+        pos (300, 240)
+
     a "Ура! Мария, пойдёшь с нами?"
-    
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
+    show maria talk:
+        zoom 1.2
+        pos (300, 240)
+
     m "Конечно! Я тоже хочу научиться."
-    
+
+    hide anastasia talk
+    hide maria talk
+
     "Сёстры убегают, оставляя Татьяну с родителями."
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+    with fade
+
     n "Таня, ты сегодня какая-то задумчивая. Всё хорошо?"
-    
+
+    hide nick talk
+    hide sasha
+
+    show tania talk 2:
+        zoom 1.2
+        pos (600, 150)
+
     t "Папа... Я просто думаю о том, что мама сказала. О благодарности."
-    
+
     t "Я благодарна. Правда. За каждый день, за вас, за сестёр, за Алексея..."
-    
+
     t "Но иногда мне так страшно, что я не могу дышать. Особенно ночью."
-    
+
+    hide tania talk 2
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     "Николай и Александра переглядываются."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Иди к нам, доченька."
-    
+
+    hide sasha talk
+    hide nick
+    with fade
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show tania 2:
+        zoom 1.2
+        pos (800, 150)
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+
     "Татьяна подходит, и родители обнимают её вдвоём."
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (200, 80)
+
     n "Знаешь, Таня, даже императоры боятся. Даже мы. Это нормально."
-    
+
     n "Но мы должны быть сильными. Не для себя — для Алексея, для младших. Ты понимаешь?"
-    
+
+    show nick:
+        zoom 1.1
+        pos (200, 80)
+
+    show tania talk 2:
+        zoom 1.2
+        pos (800, 150)
+
     t "Понимаю, папа. Я стараюсь."
-    
+
+    show tania 2:
+        zoom 1.2
+        pos (800, 150)
+
+    show sasha talk:
+        zoom 1.3
+        pos (1200, 100)
+
     al "Мы знаем. И мы гордимся тобой."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (1200, 100)
+
     "Татьяна вытирает глаза и пытается улыбнуться."
-    
+
+    show tania talk 2:
+        zoom 1.2
+        pos (800, 150)
+
     t "Я пойду, проверю, как там девочки. А то Настя опять муку везде рассыплет."
-    
+
+    hide tania 2 talk
+    hide sasha
+    hide nick
+    with fade
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     play sound "audio/door_close.mp3"
 
     "Родители смеются, и Татьяна выходит."
-    
+
     "Александра смотрит вслед дочери, и её лицо омрачается."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Ники... Они такие молодые. Им бы жить, танцевать, влюбляться..."
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     n "Я знаю, Сана. Знаю."
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "За что они страдают? Чем они заслужили?"
-    
+
+    show nick talk:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     n "Не мы выбираем свой крест. Мы можем только нести его с достоинством."
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
     al "Наши дети несут его лучше нас."
-    
+
+    show nick:
+        zoom 1.1
+        pos (300, 80)
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
     "Николай обнимает жену. Несколько минут они стоят молча, глядя в забеленное окно."
+
+    hide sasha
+    hide nick
 
     scene black with fade
     "Через час в доме запахнет свежим хлебом. На кухне будет слышен смех сестёр и ворчание повара Харитонова, который делает вид, что сердится, но на самом деле рад."
-    
+
     jump baking_scene
 
 
 label secret_dialog_morning:
-    
+
     play sound "audio/book_turn.mp3"
 
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     "Татьяна перелистывает страницы и на мгновение замирает."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "Мама... Здесь, где я отметила. Можно прочитать?"
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Прочитай, Таня."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "'Блаженны изгнанные за правду, ибо их есть Царство Небесное. Блаженны вы, когда будут поносить вас и гнать и всячески неправедно злословить за Меня.'"
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     "Тишина. Даже Анастасия, обычно непоседливая, застывает."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "Мама... Это же про нас, да? 'Изгнанные за правду'..."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Подойди ко мне, девочка моя."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     "Татьяна подходит, и Александра Фёдоровна обнимает её, прижимая к себе."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Про нас, моя родная. Про нас."
-    
+
     al "Знаешь, Таня, я много думала об этих словах. 'Блаженны' — значит счастливы. Счастливы изгнанные."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "Как мы можем быть счастливы здесь, мама?"
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Потому что нас изгнали за то, что мы не предали. Не предали веру, не предали друг друга, не предали Россию."
-    
+
     al "Нас лишили дворцов, но не лишили любви. Нас лишили власти, но не лишили достоинства."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "А Бог... Он видит?"
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Он видит всё, Таня. И он с нами. Особенно сейчас."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     "Александра целует дочь в лоб."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Сохрани эту веру. Она нужнее, чем хлеб. Нужнее, чем вода."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania talk:
+        zoom 1.2
+        pos (200, 150)
+
     t "Я постараюсь, мама."
-    
+
+    show sasha talk:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     al "Я знаю. Ты моя сильная девочка."
-    
+
+    show sasha:
+        zoom 1.3
+        pos (900, 100)
+
+    show tania:
+        zoom 1.2
+        pos (200, 150)
+
     "Они сидят обнявшись, пока остальные тихо занимаются своими делами."
-    
-    
+
+    hide tania
+    hide sasha
+
 
 # ПЕРЕМЕННЫЕ ДЛЯ МИНИ-ИГРЫ
 default bread_type = "karavay"
@@ -1534,75 +2534,186 @@ default extra_time = 0
 # СЦЕНА: ВЫПЕЧКА ХЛЕБА (полная)
 label baking_scene:
     scene bg kitchen with fade
-    show h at center
+    show har:
+        zoom 1.1
+        pos (650, 150)
 
     "Харитонов хлопочет у печи."
 
     play sound "audio/door_close.mp3"
 
-    show maria at left with moveinleft
-    show anastasia at right with moveinright
+    transform anastasia_custom:
+        zoom 1.1
+        ypos 250
+        on show:
+            xpos 1500
+            easein 0.5 xpos 1200
+
+    transform maria_custom:
+        zoom 1.2
+        ypos 250
+        on show:
+            xpos -200
+            easein 0.5 xpos 0
+
+    show anastasia at anastasia_custom
+    show maria talk at maria_custom
 
 
     m "Харитонов, позвольте! Мы сами хотим к обеду хлеб испечь."
+
+    show maria:
+        zoom 1.2
+        pos (0, 250)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (1200, 250)
+
     a "Сами-сами! Мы умеем. Немножко."
 
-    show kharitonov_skeptical
+    show anastasia:
+        zoom 1.1
+        pos (1200, 250)
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
+
     h "Ишь чего удумали, барышни. Не гоже княжеским дочкам в муке руки по локоть обваливать. Скажут потом - Харитонов не доглядел."
 
-    show tatyana at right with moveinright
-    hide a
+    hide har talk
+    hide anastasia talk
+    hide maria
+    with fade
+
+    show tania talk:
+        zoom 1.2
+        pos (600, 150)
 
     t "Харитонов, ну право слово. Позвольте девчонкам. Одну-единственную буханку. А вы сами пока хоть полчаса отдохнёте."
 
-    show kharitonov_annoyed
+    hide tania talk
+    with fade
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
+
+    show maria:
+        zoom 1.2
+        pos (0, 250)
+
+    show anastasia:
+        zoom 1.1
+        pos (1200, 250)
+
     h "Татьяна Николаевна! Да с ними хлопот — в два раза больше. Не видать мне с ними никакого отдыху. Они ж не стряпать — они воевать пришли."
 
-    show maria at left
-    show anastasia at right
-    hide tatyana
+    show har:
+        zoom 1.1
+        pos (650, 150)
+
+    show maria talk:
+        zoom 1.2
+        pos (0, 250)
 
     m "Дя-а-а-денька..."
+
+    show maria:
+        zoom 1.2
+        pos (0, 250)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (1200, 250)
+
     a "Ну пожа-а-а-алуйста..."
 
-    show kharitonov_smile
+    show anastasia:
+        zoom 1.1
+        pos (1200, 250)
+
+    show har talk:
+        zoom 1.1
+        pos (650, 150)
+
     h "Ла-а-адно. Уговорили, сорванцы. Вон подите в кладовой фартуки возьмите. Да такие, чтоб не жалко. И руки потом мыть — до локтей."
 
     hide maria
     hide anastasia
+    hide har talk
+    with fade
+
     "Девочки с визгом убегают."
 
     scene bg kitchen with fade
-    show kharitonov at center
-    show tatyana at right
+
+    show tania 2:
+        zoom 1.2
+        pos (1200, 150)
 
     "Татьяна ждёт у двери."
 
-    show maria at left
-    show anastasia at right
+    show anastasia 2:
+        zoom 1.1
+        pos (600, 250)
+
+    show maria:
+        zoom 1.2
+        pos (100, 250)
+    with fade
 
     play sound "audio/door_close.mp3"
     "Анастасия и Мария возвращаются, перепоясанные в огромные фартуки."
 
+    show tania talk 2:
+        zoom 1.2
+        pos (1200, 150)
+
     t "Давайте, я помогу."
+
+    show tania 2:
+        zoom 1.2
+        pos (1200, 150)
 
     "Татьяна молча завязывает каждой хвост, поправляет воротник Марии, целует ту в макушку и уходит."
 
-    hide tatyana
+    hide tania 2
+    with fade
 
-    show kharitonov at center
+    show har talk 2:
+        zoom 1.1
+        pos (1200, 150)
+
     h "Ну, боярышни-поварихи, что печь будем? По-французски — багет, чтоб хрустел, али по-нашему — каравай, чтоб душу грел?"
+
+    hide har talk 2
+    hide anastasia 2
+    hide maria
 
     menu:
         "Багет":
             $ bread_type = "baguette"
+
+            show har talk:
+                zoom 1.1
+                pos (650, 150)
+
             h "Ох и выдумщицы! Царскую кровь в вас, барышни, даже самой суровой мукой не перебить. Франция, стало быть, в атаку. Ну, смотрите."
         "Каравай":
             $ bread_type = "karavay"
+
+            show har talk:
+                zoom 1.1
+                pos (650, 150)
+
             h "То-то же. Мягкий русский каравай любого француза с его багетом уделает. Записывайте рецепт на носы."
 
     h "Значит так. Стол мукой присыпаем. Горстку муки - горкой. В горке - ямочку."
     h "В ямочку - яйца. Потом - соль. Потом - водичкой разбавляем. Неспешно."
+
+    hide har talk
 
     call baking_minigame
 
