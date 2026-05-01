@@ -5856,24 +5856,78 @@ label sbory:
     with fade
  
     "Комната девочек. Ольга зажигает лампу. Руки дрожат, но лицо спокойно."
+
+    show olga sleepy 2:
+        zoom 1.5
+        pos (550, 150)
  
     o "Мама, что происходит?"
+
+    hide olga sleepy 2
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (600, 100)
  
     al "Не знаю, девочка. Одевайтесь теплее. Там подвал, наверное, холодно."
+
+    hide sasha sleepy
+
+    show tania shy 2:
+        zoom 1.2
+        pos (600, 130)
  
     "Татьяна хватает с кровати подушку — маленькую, в наволочке с вышитыми васильками."
+
+    show tania sleepy 2:
+        zoom 1.2
+        pos (600, 130)
  
     t "Я взяла подушку для Алексея. Ему жёстко сидеть."
+
+    hide tania sleepy
+
+    show maria shy 3:
+        zoom 1.2
+        pos (600, 200)
  
     "Мария снимает с угла икону Спаса Нерукотворного. Заворачивает в платок."
+
+    hide maria shy 3
+
+    show maria sleepy:
+        zoom 1.2
+        pos (600, 200)
  
     m "А я — икону. Маменька благословила."
+
+    hide maria sleepy
+
+    show anastasia shy:
+        zoom 1.2
+        pos (600, 200)
  
     "Анастасия мечется по комнате, заглядывает под кровать, за шкаф."
+
+    show anastasia sleepy:
+        zoom 1.2
+        pos (600, 200)
  
     a "Я Джоя не нашла... Он где-то в доме бегает. Я не могу его бросить!"
+
+    hide anastasia sleepy
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (600, 100)
  
     al "Оставь, Настя. Потом найдётся. Он умный. Он выживет."
+
+    hide sasha sleepy
+
+    show anastasia shy:
+        zoom 1.2
+        pos (600, 200)
  
     "Анастасия замирает. Смотрит на мать. Кивает. Берёт только платок."
 
@@ -5885,58 +5939,293 @@ label sbory:
 
     
 if not inventory.has_item(7):
+
+    show alex scary:
+        zoom 1.1
+        pos (300, 180)
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
     "Анастасия замечает, что Алексей трогает шею."
+
+    hide alex scary
+
+    show alex talk 2:
+        zoom 1.1
+        pos (300, 180)
+
     ax "Настя... Мой крестик. Я снял его на ночь и забыл надеть."
+
+    show alex scary 2:
+        zoom 1.1
+        pos (300, 180)
+
+    show anastasia talk:
+        zoom 1.1
+        pos (900, 250)
+
     a "Где он?"
+
+    show alex talk 2:
+        zoom 1.1
+        pos (300, 180)
+
+    show anastasia:
+        zoom 1.1
+        pos (900, 250)
+
     ax "На тумбочке... Но сейчас нельзя туда возвращаться!"
+
+    hide anastasia
+    hide alex talk 2
     
     menu:
+        "Что сделать Анастасии:"
+
         "Вернуться за крестиком":
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Я мигом!"
+
+            hide anastasia talk
+            hide alex
+            with fade
+
             "Анастасия выскальзывает из комнаты. Сердце колотится. Шаги охраны где-то рядом."
             "Она вбегает в комнату Алексея, хватает маленький серебряный крестик на тонком шнурке."
+
+            show anastasia:
+                zoom 1.1
+                pos (600, 250)
+            with fade
+
             ia "Это крестик, который бабушка подарила. Лёша никогда с ним не расставался."
+
+            hide anastasia
+            with fade
+
             "Она выбегает обратно, пряча крестик в кулаке."
             "Охрана" "Куда пошла?! Быстро к остальным!"
             "Анастасия возвращается к семье, пряча руки за спиной."
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+            with fade
+
             a "Лёша, держи."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             "Она надевает крестик на брата. Он улыбается."
+
+            show alex talk 2:
+                zoom 1.1
+                pos (300, 180)
+
             ax "Спасибо, Настя. Теперь я спокоен."
+
+            hide alex talk 2
+            hide anastasia
+            with fade
+
             $ inventory.add_item(7)
             play sound "audio/notify.mp3"
 
             $ all_items_collected = inventory.count_found() >= 7
             if all_items_collected:
                 ia "У каждого из нас теперь есть что-то святое... Мы взяли с собой самое дорогое. Что бы ни случилось — мы не одни."
+                with fade
             
         "Отдать свой крестик":
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Лёша... Возьми мой."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             "Анастасия снимает с шеи свой крестик и надевает на брата."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Он тебе нужнее. Иди."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             "Алексей сжимает в руке крестик сестры. На его глаза наворачиваются слёзы."
+
+            show alex talk 2:
+                zoom 1.1
+                pos (300, 180)
+
             ax "Спасибо, Настя. Я сохраню его."
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+                
             a "Я знаю. Ты сильный, Лёшенька."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             "Анастасия гладит брата по голове. Крестик ушёл, но на душе тепло."
+
+            hide anastasia
+            hide alex scary talk
+            with fade
             
         "Сказать, что крестик останется здесь, но вера всегда с ним":
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Лёша... Нельзя возвращаться. Охрана везде."
+
+            show alex talk 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             ax "Но... бабушкин крестик..."
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Он останется здесь. Но ты носишь его в сердце. Помнишь, что бабушка говорила?"
+
+            show alex talk 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
             ax "Что Бог всегда со мной, даже если нет креста на шее."
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Правильно. Бог видит тебя. И бабушка видит. А крестик... Он будет ждать нас. Если мы вернёмся."
+
+            show alex talk 2:
+                zoom 1.1
+                pos (300, 180)
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             ax "А если не вернёмся?"
+
+            show alex scary 2:
+                zoom 1.1
+                pos (300, 180)
+
             "Анастасия берёт брата за руку."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Тогда он останется здесь, как напоминание. Что мы были. Что мы верили. Что мы - семья."
+
+            show anastasia:
+                zoom 1.1
+                pos (900, 250)
+
             "Алексей кивает. Слёзы текут по щекам, но он не плачет вслух."
+
+            show anastasia talk:
+                zoom 1.1
+                pos (900, 250)
+
             a "Идём. Мы вместе."
+
+            hide alex scary 2
+            hide anastasia talk
+            with fade
+
+    show nick talk:
+        zoom 1.1
+        pos (600, 150)
     
     n "Лёша, я понесу тебя. Обними за шею."
+
+    show nick:
+        zoom 1.1
+        pos (600, 150)
  
     "Николай поднимает сына на руки. Алексей худой, лёгкий. Слишком лёгкий."
+
+    hide nick talk
+
+    show alex talk 2:
+        zoom 1.1
+        pos (600, 180)
  
     ax "Папа... я не боюсь."
+
+    hide alex talk 2
+
+    show nick talk:
+        zoom 1.1
+        pos (600, 150)
  
     n "Я знаю, сынок. Я знаю."
+
+    hide nick talk
 
     stop music fadeout 2.0
  
@@ -5944,22 +6233,66 @@ if not inventory.has_item(7):
         scene bg stairs
         with dissolve
 
+        show nick:
+            zoom 1.1
+            pos (600, 150)
+
         "Николай останавливается на мгновение и обводит взглядом детей."
         "Все - Ольга, Татьяна, Мария, Анастасия, Алексей на руках - смотрят на него."
 
+        show nick talk:
+            zoom 1.1
+            pos (600, 150)
+
         n "Дети... Я хочу, чтобы вы знали. Что бы ни случилось - я горжусь вами. Всеми."
+
+        hide nick talk
+
+        show nick:
+            zoom 1.1
+            pos (300, 150)
+
+        show sasha:
+            zoom 1.2
+            pos (900, 170)
 
         "Александра подходит, встаёт рядом. Кладёт руку на плечо мужа."
 
+        show sasha talk:
+            zoom 1.2
+            pos (900, 170)
+
         al "Мы вместе. Всегда вместе. Навсегда."
 
+        show sasha:
+            zoom 1.2
+            pos (900, 170)
+
         "Тишина. Никто не плачет. Анастасия улыбается - нервно, но искренне."
+
+        show nick talk:
+            zoom 1.1
+            pos (300, 150)
         
         n "Ну же, выше нос дети! Давайте помолимся за наше благополучие..."
         # КРУТАЯ МОЛИТВА
         $ sekretny_dialog = True
     else:
+
+        show nick:
+            zoom 1.1
+            pos (300, 150)
+
+        show sasha:
+            zoom 1.2
+            pos (900, 170)
+
         "Николай молчит. Только крестит детей в воздухе."
+
+        show sasha talk:
+            zoom 1.2
+            pos (900, 170)
+
         "Александра шепчет «Идите за мной». И всё."
         $ sekretny_dialog = False
  

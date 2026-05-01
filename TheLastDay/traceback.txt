@@ -7,9 +7,9 @@ While running game code:
     call secret_dialog_morning from _call_secret_dialog_morning
   File "game/script.rpy", line 4636, in script call
     call card_game_start from _call_card_game_start
-  File "game/script.rpy", line 5542, in script
-    show maria shy 2:
-Exception: Image 'maria shy' does not accept attributes '2'.
+  File "game/script.rpy", line 5961, in script
+    show alex scary 2:
+Exception: Image 'alex scary' does not accept attributes '2'.
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -20,8 +20,8 @@ Traceback (most recent call last):
     call secret_dialog_morning from _call_secret_dialog_morning
   File "game/script.rpy", line 4636, in script call
     call card_game_start from _call_card_game_start
-  File "game/script.rpy", line 5542, in script
-    show maria shy 2:
+  File "game/script.rpy", line 5961, in script
+    show alex scary 2:
   File "renpy/ast.py", line 1357, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -45,9 +45,9 @@ Traceback (most recent call last):
     raise Exception(
     ...<4 lines>...
     )
-Exception: Image 'maria shy' does not accept attributes '2'.
+Exception: Image 'alex scary' does not accept attributes '2'.
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.2.26010301
 Там, где кончается июль 
-Fri May  1 13:12:33 2026
+Fri May  1 14:52:02 2026
