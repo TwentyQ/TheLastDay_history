@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 5987: choice menuitem expects a non-empty block.
-    "Вернуться за крестиком":
-                  ^
+File "game/script.rpy", line 6590: expected menuitem
+    show young guard:
+    ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Fri May  1 14:54:51 2026
+Fri May  1 16:29:44 2026
