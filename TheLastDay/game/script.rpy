@@ -5773,30 +5773,75 @@ label noch_aleksey:
  
     play sound "audio/car_3.mp3"
     "Внезапно - гул. Нарастающий. Грузовик. Под самыми окнами."
+
+    show alex shy:
+        zoom 1.1
+        pos (600, 180)
  
     "Алексей резко садится. Сердце колотится."
+
+    show alex sleepy:
+        zoom 1.1
+        pos (600, 180)
  
     ax "Что это? Почему машина ночью?"
+
+    show alex shy:
+        zoom 1.1
+        pos (600, 180)
  
     "Никто не отвечает. За стеной — шаги. Не привычные, тяжёлые. Много пар."
+
+    hide alex shy
  
     menu:
         "Что делает Алексей?"
  
         "Позвать маму":
+
+            show alex sleepy:
+                zoom 1.1
+                pos (600, 180)
+
             ax "Маменька..."
+
+            show alex shy:
+                zoom 1.1
+                pos (600, 180)
             $ aleksey_plachet = True
             "Страшно. Очень страшно. Хочется к маме..."
+
+            hide alex shy
+            with fade
  
         "Сжать кулаки и молчать":
+
+            show alex shy:
+                zoom 1.1
+                pos (600, 180)
+
             "Алексей закусывает губу и садится ровно."
             $ aleksey_plachet = False
             "Но я же мужчина. Мне уже 13. Папа сказал, казаком буду."
+
+            hide alex shy
+            with fade
  
     play sound "audio/knock_door.mp3"
     "Стук в дверь. Короткий, сухой."
+
+    show botkin talk:
+        zoom 1.1
+        pos (600, 100)
+    with fade
  
     b "Ваше Императорское Высочество... простите, что бужу. Вас просят спуститься. В городе неспокойно."
+
+    hide botkin talk
+
+    show alex shy 2:
+        zoom 1.1
+        pos (600, 180)
  
     "Алексей смотрит на дверь. Нога болит. Он не зовёт на помощь. Он держится стойко."
  
