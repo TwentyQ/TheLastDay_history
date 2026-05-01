@@ -6317,35 +6317,167 @@ label podval:
     "Полуподвал. Сыро. Пахнет известью и землёй."
     "Одна электрическая лампочка под потолком. Стены — крашеный тёмный бетон."
     "Решётка на единственном окне."
+
+    show maria:
+        zoom 1.2
+        pos (600, 150)
+
+    show tania 2:
+        zoom 1.2
+        pos (1000, 50)
+
+    show olga 2:
+        zoom 1.2
+        pos (1400, 70)
+
+    show anastasia 2:
+        zoom 1.1
+        pos (350, 150)
+
+    show nick:
+        zoom 1.1
+        pos (-100, 0)
+
+    show sasha 2:
+        zoom 1.2
+        pos (100, 170)
+
+    show alex scary:
+        zoom 1.1
+        pos (1250, 180)
+    with fade
  
     "Семья заходит. 40 минут ожидания. Никто не садится на пол - только стоят, сбившись в кучу."
  
     "Александра оглядывается. В комнате - ни стула, ни скамьи."
     "Сдержано и гордо она обращается к Юровскому."
+
+    hide anastasia 2
+    hide alex scary
+    hide sasha 2
+    hide olga 2
+    hide tania 2
+    hide maria
+    hide nick
+    with fade
+
+    show sasha talk 2:
+        zoom 1.2
+        pos (600, 170)
  
     al "Здесь нет стульев. Мой сын болен, ему нельзя стоять."
+
+    hide sasha talk 2
+    with fade
+
+    show guard:
+        zoom 1.4
+        pos (550, 80)
  
     "Юровский молчит несколько секунд. Кивает одному из охранников."
+
+    show guard talk:
+        zoom 1.4
+        pos (550, 80)
  
     g "Принесут."
+
+    hide guard
+    with fade
  
     "Охранник выходит. Возвращается через минуту с двумя венскими стульями. Ставит посреди комнаты."
     play sound "audio/furniture.mp3"
 
+    show sasha talk 2:
+        zoom 1.2
+        pos (600, 170)
+
     al "Садись, Лёшенька. Рядом со мной."
+
+    hide sasha talk 2
+    with fade
+
+    show maria:
+        zoom 1.2
+        pos (600, 150)
+
+    show tania 2:
+        zoom 1.2
+        pos (1000, 50)
+
+    show olga 2:
+        zoom 1.2
+        pos (1400, 70)
+
+    show anastasia 2:
+        zoom 1.1
+        pos (350, 150)
+
+    show nick:
+        zoom 1.1
+        pos (-100, 0)
+
+    show sasha 2:
+        zoom 1.2
+        pos (100, 300)
+
+    show alex scary:
+        zoom 1.1
+        pos (1250, 310)
  
     "Александра садится на один стул. Алексей - на второй, справа от неё."
     "Николай встаёт за спиной жены. Девочки - рядом, вплотную."
  
     "Тишина. Тяжёлая, мокрая."
+
+    hide anastasia 2
+    hide alex scary
+    hide sasha 2
+    hide olga 2
+    hide tania 2
+    hide maria
+    hide nick
+    with fade
+
+    show maria 2:
+        zoom 1.2
+        pos (900, 250)
+
+    show anastasia talk 2:
+        zoom 1.1
+        pos (300, 250)
  
     a "Мария, у тебя икона с собой?"
+
+    show maria talk 2:
+        zoom 1.2
+        pos (900, 250)
+
+    show anastasia 2:
+        zoom 1.1
+        pos (300, 250)
  
     m "Да."
+
+    show maria 2:
+        zoom 1.2
+        pos (900, 250)
  
     "Мария разворачивает платок, показывает икону."
+
+    show maria 2:
+        zoom 1.2
+        pos (900, 250)
+
+    show anastasia talk 2:
+        zoom 1.1
+        pos (300, 250)
  
     a "Подержи, я тоже перекрещусь."
+
+    hide maria 2
+    hide anastasia talk 2
+    with fade
  
     "Мария держит икону перед сёстрами. Ольга, Татьяна, Мария, Анастасия по очереди касаются губами образа."
     "Алексей смотрит, но не двигается — нога болит."
