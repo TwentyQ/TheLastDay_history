@@ -5507,69 +5507,254 @@ label before_sleep:
     "22:00. Cпальня девочек."
     "Александра сидит на краю кровати. Девочки стоят перед ней — Ольга, Татьяна, Мария, Анастасия."
     "Все в ночных сорочках, с распущенными волосами."
+
+    show sasha shy:
+        zoom 1.2
+        pos (600, 100)
  
     "Александра крестит каждую. Целует в лоб."
+
+    hide sasha sleepy
+    with fade
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (300, 100)
+
+    show olga shy 2:
+        zoom 1.5
+        pos (900, 150)
  
     al "Храни тебя Господь, Ольга..."
+
+    hide olga shy 2
+    with fade
+
+    show tania shy:
+        zoom 1.2
+        pos (1000, 130)
+
     al "Храни тебя Господь, Татьяна..."
+
+    hide tania shy
+    with fade
+
+    show maria shy 2:
+        zoom 1.2
+        pos (1000, 200)
+
     al "Храни тебя Господь, Мария..."
+
+    hide maria shy
+    with fade
+
+    show anastasia shy:
+        zoom 1.2
+        pos (1000, 200)
+
     al "Храни тебя Господь, Анастасия..."
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     "Голос её срывается на последнем имени. Она замолкает, сглатывает."
+
+    show anastasia sleepy:
+        zoom 1.2
+        pos (1000, 200)
  
     a "Мама, а вы с папой ещё долго?"
+
+    show anastasia shy:
+        zoom 1.2
+        pos (1000, 200)
  
     "Анастасия обнимает мать."
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (300, 100)
  
     al "Нет, мы тоже скоро. Идите. Спите."
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
-    "Девочки уходят. В дверях Анастасия оборачивается."
+    "Девочки расходятся по кроватям. Анастасия оборачивается."
+
+    show anastasia sleepy:
+        zoom 1.2
+        pos (1000, 200)
  
     a "Маменька... я люблю вас."
+
+    show anastasia shy:
+        zoom 1.2
+        pos (1000, 200)
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (300, 100)
  
     al "И я тебя, Настя. Иди."
+
+    "Александра уходит в соседнюю комнату."
  
     scene bg parents
     with dissolve
+
+    show nick shy:
+        zoom 1.1
+        pos (700, 150)
  
     "Николай входит. Подходит к жене."
+
+    hide nick shy
+
+    show sasha shy:
+        zoom 1.2
+        pos (600, 100)
+
     "Она стоит у окна, смотрит на забелённое известкой стекло."
+
+    hide sasha shy
+    with fade
+
+    show nick sleepy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     n "Сана... ты как?"
+
+    show nick shy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (300, 100)
  
     al "Я молюсь, Ники. Всё время молюсь."
+
+    show nick sleepy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     n "Я знаю. Я тоже."
+
+    show nick shy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     "Он встаёт рядом. Оба смотрят на белое окно. За ним — темнота. Ни звёзд. Ни огней."
+
+    show nick sleepy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     n "Знаешь... я не жалею ни о чём."
+
+    show nick shy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha sleepy:
+        zoom 1.2
+        pos (300, 100)
  
     al "Даже о том, что отрёкся?"
+
+    show nick sleepy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     n "Особенно о том. Может быть, именно это и нужно было сделать. Чтобы мы оказались здесь. Вместе."
+
+    show nick shy:
+        zoom 1.1
+        pos (1000, 150)
+
+    show sasha shy:
+        zoom 1.2
+        pos (300, 100)
  
     "Она кладёт голову ему на плечо. Он обнимает её."
+
+    hide nick shy
+    hide sasha shy
+    with fade
  
     "Тишина. Слышно, как за стеной ходит часовой."
     play music "audio/steps_guard.mp3" loop volume 0.2 fadein 2.0
-    
-
  
     menu:
         "Кто произносит последнюю молитву перед сном?"
  
         "Николай":
+
+            show nick sleepy:
+                zoom 1.1
+                pos (700, 150)
+            with fade
+
             n "Господи, прими нас. Мы готовы."
             $ poslednyaya_molitva = "nikolay"
+
+            hide nick sleepy
+            with fade
  
         "Александра":
+
+            show sasha sleepy:
+                zoom 1.2
+                pos (600, 100)
+            with fade
+
             al "Пресвятая Богородица, спаси нас. Спаси детей моих."
             $ poslednyaya_molitva = "aleksandra"
+
+            hide sasha sleepy
+            with fade
  
         "Оба молча крестятся":
+
+            show nick shy:
+                zoom 1.1
+                pos (1000, 150)
+
+            show sasha shy:
+                zoom 1.2
+                pos (300, 100)
+            with fade
+
             "Николай и Александра молча крестятся на образ в углу."
             $ poslednyaya_molitva = "molchanie"
+
+            hide nick shy
+            hide sasha shy
+            with fade
  
     "Лампа гаснет. Темнота."
     stop music fadeout 2.0
